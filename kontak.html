@@ -682,13 +682,14 @@
             chatWindow.appendChild(messageElement);
             chatWindow.scrollTop = chatWindow.scrollHeight;
         }
-// Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+		 document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+    menuToggle.addEventListener("click", function() {
+      navLinks.classList.toggle("active");
+    });
+  });
 
         // Allow sending message with Enter key
         document.getElementById('chatInput').addEventListener('keypress', function(e) {

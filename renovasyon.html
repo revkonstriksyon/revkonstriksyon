@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="ht">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renovasyon - REV Konstriksyon</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root {
+        --primary-color: #C41E3A;
+        --secondary-color: #1A1A1A;
+        --accent-color: #D3D3D3;
+        --background-color: #0F0F0F;
+        --text-color: #FFFFFF;
+        --light-text: #E0E0E0;
+    }
+    
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    header {
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.5s ease;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+        transform: scale(1.05);
+    }
+    
+    .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin-left: 2rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: var(--light-text);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+    
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .hero {
+        height: 70vh;
+        background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(196, 30, 58, 0.7), rgba(26, 26, 26, 0.7));
+    }
+    
+    .hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .hero p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .services {
+        padding: 5rem 0;
+    }
+    
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .service-item {
+        background-color: var(--secondary-color);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .service-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    
+    .service-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .service-content {
+        padding: 1.5rem;
+    }
+    
+    .service-title {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+    
+    .service-description {
+        font-size: 1rem;
+        color: var(--light-text);
+    }
+    
+    .process {
+        background-color: var(--secondary-color);
+        padding: 5rem 0;
+    }
+    
+    .process-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: var(--primary-color);
+    }
+    
+    .process-steps {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .process-step {
+        flex-basis: calc(25% - 2rem);
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .step-number {
+        font-size: 3rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+    
+    .step-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .step-description {
+        font-size: 0.9rem;
+        color: var(--light-text);
+    }
+    
+    .cta {
+        padding: 5rem 0;
+        text-align: center;
+        background-image: url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+    
+    .cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(26, 26, 26, 0.8);
+    }
+    
+    .cta-content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .cta-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+    
+    .cta-description {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .cta-button:hover {
+        background-color: #9B1C2F;
+        transform: scale(1.05);
+    }
+    
+    .renovation-types {
+        padding: 5rem 0;
+    }
+    
+    .renovation-type {
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background-color: var(--secondary-color);
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .renovation-type h3 {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .renovation-type ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .renovation-type li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+    
+    .renovation-type li::before {
+        content: '\f058';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: var(--primary-color);
+        position: absolute;
+        left: 0;
+    }
+    
+    .why-choose-us {
+        background-color: var(--secondary-color);
+        padding: 5rem 0;
+    }
+    
+    .why-choose-us h2 {
+        text-align: center;
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+    
+    .reasons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    
+    .reason-item {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: var(--background-color);
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+    
+    .reason-item:hover {
+        transform: translateY(-10px);
+    }
+    
+    .reason-item i {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+    
+    .reason-item h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    footer {
+        background-color: var(--secondary-color);
+        color: var(--light-text);
+        padding: 4rem 0 2rem;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex: 1;
+        margin-right: 2rem;
+        min-width: 200px;
+    }
+    
+    .footer-section h3 {
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+    }
+    
+    .footer-section p {
+        margin-bottom: 0.8rem;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .social-icons a {
+        color: var(--light-text);
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+        }
+        
+        .process-step {
+            flex-basis: calc(50% - 2rem);
+            margin-bottom: 2rem;
+        }
+        
+        .footer-content {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+    }
+	 @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+        }
+        
+        .about-content {
+            flex-direction: column;
+        }
+        
+        .footer-content {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+    }
+	
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin-left: 2rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: var(--light-text);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+    
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .menu-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--light-text);
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: var(--secondary-color);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease;
+        }
+        
+        .nav-links.active {
+            left: 0;
+        }
+        
+        .nav-links li {
+            margin: 1.5rem 0;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+    }
+    
+</style>
+</head>
+<body>
+    <header id="main-header">
+        <nav class="container">
+				<a href="index.html" class="logo">
+                <img src="logo.png" alt="REV Konstriksyon Logo" width="50" height="50">
+                <span>REV Konstriksyon</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Akèy</a></li>
+                <li><a href="sevis.html">Sèvis</a></li>
+                <li><a href="pwoje.html">Pwojè</a></li>
+                <li><a href="ekip.html">Ekip</a></li>
+				<li><a href="blog.html">Blog</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+			<div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Renovasyon Espas ou</h1>
+                <p>Transfòme kay ou oswa biznis ou ak solisyon renovasyon inovatif nou yo. Kreye yon espas ki adapte ak bezwen ou yo epi reflete pèsonalite ou.</p>
+            </div>
+        </section>
+
+        <section class="renovation-types container">
+            <h2>Kisa Renovasyon Ye?</h2>
+            <p>Renovasyon se pwosesis amelyorasyon oswa modènizasyon yon kay oswa yon biznis. Li ka gen ladan chanjman nan estrikti, aparans, oswa fonksyonalite espas la. Nan REV Konstriksyon, nou espesyalize nan plizyè tip renovasyon:</p>
+            
+            <div class="renovation-type">
+                <h3>Renovasyon Rezidansyèl</h3>
+                <ul>
+                    <li>Modènizasyon kuizin ak twalèt</li>
+                    <li>Agrandisman kay</li>
+                    <li>Renovasyon salon ak chanm</li>
+                    <li>Renovasyon sousòl</li>
+                    <li>Amelyorasyon efikasite enèji</li>
+                </ul>
+            </div>
+            
+            <div class="renovation-type">
+                <h3>Renovasyon Komèsyal</h3>
+                <ul>
+                    <li>Renovasyon biwo</li>
+                    <li>Modènizasyon magazen</li>
+                    <li>Renovasyon restoran</li>
+                    <li>Amelyorasyon espas endistriyèl</li>
+                    <li>Adaptasyon espas pou nouvo itilizasyon</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="process">
+            <div class="container">
+                <h2 class="process-title">Kijan Nou Fè Renovasyon?</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Konsiltasyon ak Evalyasyon</h3>
+                        <p class="step-description">Nou rankontre pou diskite sou vizyon ou, bezwen ou yo, ak bidjè ou. Nou evalye espas la epi ofri konsèy ekspè.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Konsepsyon ak Planifikasyon</h3>
+                        <p class="step-description">Nou kreye yon plan detaye ki kapte lide ou yo, ki gen ladan desen, seleksyon materyèl, ak estimasyon pri.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Preparasyon ak Demolisyon</h3>
+                        <p class="step-description">Nou prepare sit la, retire eleman ki pa nesesè, epi fè nenpòt travay demolisyon ki nesesè.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Konstriksyon ak Enstalasyon</h3>
+                        <p class="step-description">Nou aplike plan an ak presizyon, enstale nouvo eleman, epi asire bon jan kalite nan chak etap.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h3 class="step-title">Finisyon ak Detay</h3>
+                        <p class="step-description">Nou ajoute touch final yo, asire nou ke chak detay respekte estanda wo nou yo.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <h3 class="step-title">Enspeksyon Final ak Livrezon</h3>
+                        <p class="step-description">Nou fè yon enspeksyon final avèk ou pou asire satisfaksyon ou, epi nou livre pwojè a ak fyète.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose-us">
+            <div class="container">
+                <h2>Poukisa Chwazi REV Konstriksyon pou Renovasyon ou?</h2>
+                <div class="reasons-grid">
+                    <div class="reason-item">
+                        <i class="fas fa-award"></i>
+                        <h4>Eksperyans ak Ekspètiz</h4>
+                        <p>Plis pase 10 ane eksperyans nan endistri a ak yon ekip pwofesyonèl trè kalifye.</p>
+                    </div>
+                    <div class="reason-item">
+                        <i class="fas fa-thumbs-up"></i>
+                        <h4>Kalite Siperyè</h4>
+                        <p>Nou itilize materyèl pi bon kalite epi nou aplike teknik konstriksyon modèn pou garanti rezilta siperyè.</p>
+                    </div>
+                    <div class="reason-item">
+                        <i class="fas fa-clock"></i>
+                        <h4>Livrezon Alè</h4>
+                        <p>Nou respekte delè nou yo epi nou asire ke pwojè yo fini nan tan ki te pwomèt la.</p>
+                    </div>
+                    <div class="reason-item">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h4>Pri Konpetitif</h4>
+                        <p>Nou ofri yon bon valè pou lajan ou san nou pa konpwomèt kalite.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-content">
+                <h2 class="cta-title">Pare pou Kòmanse Pwojè Renovasyon ou an?</h2>
+                <p class="cta-description">Kèlkeswa bezwen renovasyon ou yo, nou gen ekspètiz pou fè vizyon ou vin yon reyalite. Kontakte nou jodi a pou yon konsiltasyon gratis epi kòmanse vwayaj pou transfòme espas ou.</p>
+                <a href="/kontak" class="cta-button">Kontakte Nou pou yon Estimasyon Gratis</a>
+            </div>
+        </section>
+    </main>
+
+<footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>REV Konstriksyon</h3>
+                <p>Nou se yon konpayi ki espesyalize nan renovasyon, ak konstriksyon pou kay ak biznis. Nou ofri sèvis pwofesyonèl ak solisyon kreyatif pou reyalize vizyon kliyan nou yo, ak yon angajman pou bon jan kalite ak presizyon. Avèk nou, ou jwenn yon patnè serye pou transfòme ide ou yo an reyalite konkrè.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakte Nou</h3>
+                <p>Adrès: 20B Rue Cauvin Delmas 32, Wès, Ayiti</p>
+                <p>Telefòn: +509 42 84 7749</p>
+                <p>Imèl: revkonstriksyon@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Swiv Nou</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com/revkonstriksyon" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/revkonstriksyon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/revkonstriksyon" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://tiktok.com/company/revkonstriksyon" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 REV Konstriksyon. Tout dwa rezève.</p>
+        </div>
+    </footer>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate hero section
+        gsap.from('.hero-content', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.5
+        });
+
+        // Animate renovation types
+        gsap.utils.toArray('.renovation-type').forEach(item => {
+            gsap.from(item, {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Animate process steps
+        gsap.utils.toArray('.process-step').forEach((step, index) => {
+            gsap.from(step, {
+                opacity: 0,
+                x: index % 2 === 0 ? -50 : 50,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: step,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+// Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Animate reasons
+        gsap.utils.toArray('.reason-item').forEach(item => {
+            gsap.from(item, {
+                opacity: 0,
+                y: 30,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top bottom-=50",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Animate CTA section
+        gsap.from('.cta-content', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.cta',
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        // Parallax effect for hero section
+        gsap.to('.hero', {
+            backgroundPosition: "50% 100%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: '.hero',
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+    </script>
+</body>
+</html>

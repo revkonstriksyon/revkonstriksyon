@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog REV Konstriksyon - Enfòmasyon ak Konsèy sou Konstriksyon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Assurez-vous que le chemin est correct -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+	
+	<style>
+    :root {
+        --primary-color: #C41E3A;
+        --secondary-color: #1A1A1A;
+        --accent-color: #D3D3D3;
+        --background-color: #0F0F0F;
+        --text-color: #FFFFFF;
+        --light-text: #E0E0E0;
+    }
+    
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    header {
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.5s ease;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+        transform: scale(1.05);
+    }
+    
+    .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin-left: 2rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: var(--light-text);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+    
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .blog-hero {
+        height: 50vh;
+        background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .blog-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(196, 30, 58, 0.7), rgba(26, 26, 26, 0.7));
+    }
+    
+    .blog-hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .blog-hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .blog-hero p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .blog-section {
+        padding: 4rem 0;
+    }
+    
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .blog-card {
+        background-color: var(--secondary-color);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .blog-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .blog-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .blog-content {
+        padding: 1.5rem;
+    }
+    
+    .blog-content h3 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .blog-content p {
+        color: var(--light-text);
+        margin-bottom: 1rem;
+    }
+    
+    .read-more {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    .read-more:hover {
+        background-color: #9B1C2F;
+    }
+    
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .pagination a {
+        color: var(--light-text);
+        padding: 0.5rem 1rem;
+        margin: 0 0.25rem;
+        border: 1px solid var(--accent-color);
+        border-radius: 5px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .pagination a:hover, .pagination a.active {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+    }
+    
+    footer {
+        background-color: var(--secondary-color);
+        color: var(--light-text);
+        padding: 4rem 0 2rem;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex: 1;
+        margin-right: 2rem;
+        min-width: 200px;
+    }
+    
+    .footer-section h3 {
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+    }
+    
+    .footer-section p {
+        margin-bottom: 0.8rem;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .social-icons a {
+        color: var(--light-text);
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .blog-hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .blog-hero p {
+            font-size: 1.2rem;
+        }
+        
+        .footer-content {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+    }
+	 @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+        }
+        
+        .about-content {
+            flex-direction: column;
+        }
+        
+        .footer-content {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+    }
+	
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin-left: 2rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: var(--light-text);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+    
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .menu-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--light-text);
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: var(--secondary-color);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease;
+        }
+        
+        .nav-links.active {
+            left: 0;
+        }
+        
+        .nav-links li {
+            margin: 1.5rem 0;
+        }
+        
+        .menu-toggle {
+            display: block;
+        }
+    }
+    
+</style>
+</head>
+
+<body>
+ <header id="main-header">
+        <nav class="container">
+				<a href="index.html" class="logo">
+                <img src="logo.png" alt="REV Konstriksyon Logo" width="50" height="50">
+                <span>REV Konstriksyon</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Akèy</a></li>
+                <li><a href="sevis.html">Sèvis</a></li>
+                <li><a href="pwoje.html">Pwojè</a></li>
+                <li><a href="ekip.html">Ekip</a></li>
+				<li><a href="blog.html">Blog</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+			<div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-hero">
+            <div class="blog-hero-content">
+                <h1>Blog REV Konstriksyon</h1>
+                <p>Eksplore dènye nouvèl, konsèy, ak tandans nan endistri konstriksyon an</p>
+            </div>
+        </section>
+
+        <section class="blog-section container">
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                    <div class="blog-content">
+                        <h3>5 Konsèy pou Chwazi Materyèl Konstriksyon ki Dire</h3>
+                        <p>Aprann kijan pou w chwazi pi bon materyèl konstriksyon ki pral dire lontan epi bay valè pou lajan w.</p>
+                        <a href="blog1.html" class="read-more">Li Plis</a>
+                    </div>
+                </article>
+                
+            </div>
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Swivan</a>
+            </div>
+        </section>
+    </main>
+
+
+<footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>REV Konstriksyon</h3>
+                <p>Nou se yon konpayi ki espesyalize nan renovasyon, ak konstriksyon pou kay ak biznis. Nou ofri sèvis pwofesyonèl ak solisyon kreyatif pou reyalize vizyon kliyan nou yo, ak yon angajman pou bon jan kalite ak presizyon. Avèk nou, ou jwenn yon patnè serye pou transfòme ide ou yo an reyalite konkrè.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakte Nou</h3>
+                <p>Adrès: 20B Rue Cauvin Delmas 32, Wès, Ayiti</p>
+                <p>Telefòn: +509 42 84 7749</p>
+                <p>Imèl: revkonstriksyon@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Swiv Nou</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com/revkonstriksyon" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/revkonstriksyon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/revkonstriksyon" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://tiktok.com/company/revkonstriksyon" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 REV Konstriksyon. Tout dwa rezève.</p>
+        </div>
+    </footer>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate hero content
+        gsap.from('.blog-hero-content', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        // Animate blog cards
+        gsap.from('.blog-card', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.blog-grid',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Parallax effect for blog hero section
+        gsap.to('.blog-hero', {
+            backgroundPosition: "50% 100%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: '.blog-hero',
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+// Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+
+        // Smooth scroll for pagination
+        document.querySelectorAll('.pagination a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector('.blog-section').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

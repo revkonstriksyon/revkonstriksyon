@@ -353,12 +353,26 @@
             margin-bottom: 2rem;
         }
     }
-	
+		.nav-links {
+  display: none; /* Kache pa default */
+  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 60px; /* Ajiste pozisyon selon bezwen ou */
+  left: 0;
+  width: 100%;
+  background-color: #1A1A1A; /* Chanje koulè si ou vle */
+  z-index: 1000;
+}
+
+/* Montre nav bar la lè li gen klas 'active' */
+.nav-links.active {
+  display: flex;
+}
+
     
-    .nav-links {
-        display: flex;
-        list-style: none;
-    }
+    
     
     .nav-links li {
         margin-left: 2rem;
@@ -422,7 +436,6 @@
             display: block;
         }
     }
-    
 </style>
 </head>
 <body>

@@ -1,0 +1,485 @@
+<html><head><base href="https://revkonstriksyon.com/pwoje/jadenkanapeve">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jaden Kanapeve - REV Konstriksyon</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root {
+        --primary-color: #C41E3A;
+        --secondary-color: #1A1A1A;
+        --accent-color: #D3D3D3;
+        --background-color: #0F0F0F;
+        --text-color: #FFFFFF;
+        --light-text: #E0E0E0;
+    }
+    
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    header {
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.5s ease;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+        transform: scale(1.05);
+    }
+    
+    .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin-left: 2rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: var(--light-text);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+    
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .project-hero {
+        height: 50vh;
+        background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .project-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(196, 30, 58, 0.7), rgba(26, 26, 26, 0.7));
+    }
+    
+    .project-hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .project-hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .project-overview {
+        padding: 5rem 0;
+    }
+    
+    .before-after {
+        padding: 5rem 0;
+    }
+    
+    .before-after-slider {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        margin: 20px 0;
+    }
+    
+    .before-after-slider img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .img-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .slider-handle {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background: var(--primary-color);
+        cursor: ew-resize;
+    }
+    
+    .slider-handle::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color);
+        border-radius: 50%;
+    }
+    
+    .slider-handle::after {
+        content: '\2194';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 20px;
+    }
+    
+    .project-features {
+        background-color: var(--secondary-color);
+        padding: 5rem 0;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .feature-item {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: var(--background-color);
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .feature-item i {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .testimonial {
+        padding: 5rem 0;
+        text-align: center;
+    }
+
+    .testimonial blockquote {
+        font-style: italic;
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .cta {
+        padding: 5rem 0;
+        text-align: center;
+    }
+    
+    .cta-button {
+        background-color: var(--primary-color);
+        color: var(--light-text);
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+        background-color: darken(var(--primary-color), 10%);
+    }
+
+    footer {
+        background-color: var(--secondary-color);
+        color: var(--light-text);
+        padding: 4rem 0 2rem;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex: 1;
+        margin-right: 2rem;
+        min-width: 200px;
+    }
+    
+    .footer-section h3 {
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+    }
+    
+    .footer-section p {
+        margin-bottom: 0.8rem;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .social-icons a {
+        color: var(--light-text);
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .project-hero h1 {
+            font-size: 3rem;
+        }
+        
+        .project-hero p {
+            font-size: 1.2rem;
+        }
+        
+        .feature-item {
+            flex-basis: calc(50% - 2rem);
+            margin-bottom: 2rem;
+        }
+        
+        .footer-content {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <img src="/a/54598752-0da2-485c-8ee9-481891ef2ba6" alt="REV Konstriksyon Logo" width="50" height="50">
+                REV Konstriksyon
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Akèy</a></li>
+                <li><a href="/sevis">Sèvis</a></li>
+                <li><a href="/pwojè">Pwojè</a></li>
+                <li><a href="/ekip">Ekip</a></li>
+                <li><a href="/kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-hero">
+            <div class="project-hero-content">
+                <h1>Jaden Kanapeve</h1>
+                <p>Yon transfòmasyon espektakilè pou yon espas detant</p>
+            </div>
+        </section>
+
+        <section class="project-overview container">
+            <h2>Apèsi Pwojè a</h2>
+            <p>Pwojè Jaden Kanapeve se yon bèl egzanp renovasyon nou te reyalize. Nou te transfòme yon espas ki te gen sèlman gazon an yon bèl espas pou detant ak amizman. Avèk kreyativite ak atansyon nan detay, nou te kreye yon jaden modèn ki melanje bote natirèl ak fonksyonalite.</p>
+        </section>
+
+        <section class="before-after container">
+            <h2>Avan ak Aprè</h2>
+            <div class="before-after-slider">
+                <img src="/images/jadenkanapeve-after.jpg" alt="Jaden Kanapeve aprè renovasyon">
+                <div class="img-overlay">
+                    <img src="/images/jadenkanapeve-before.jpg" alt="Jaden Kanapeve avan renovasyon">
+                </div>
+                <div class="slider-handle"></div>
+            </div>
+        </section>
+
+        <section class="project-features">
+            <div class="container">
+                <h2>Amelyorasyon nou te fè</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Gazon Atifisyèl</h3>
+                        <p>Enstalasyon gazon atifisyèl pou yon bèl aparans san antretyen</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-th"></i>
+                        <h3>Kawotaj</h3>
+                        <p>Ajou kawotaj pou kreye zòn diferan nan espas la</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-couch"></i>
+                        <h3>Zòn Detant</h3>
+                        <p>Kreyasyon yon zòn detant ak mèb eksteryè konfòtab</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-seedling"></i>
+                        <h3>Plantasyon</h3>
+                        <p>Ajou plant ak flè pou pote lavi ak koulè nan espas la</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial container">
+            <h2>Sa Kliyan nou di</h2>
+            <blockquote>
+                "REV Konstriksyon te transfòme jaden nou an yon fason enkwayab. Kounye a nou gen yon bèl espas pou detant ak amizman ak fanmi ak zanmi nou. Nou pa t ka pi kontan ak rezilta a!"
+                <cite>- Fami Kanapeve</cite>
+            </blockquote>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ou vle transfòme espas ou a?</h2>
+                    <p class="cta-description">Kontakte nou jodi a pou kòmanse pwojè renovasyon pa w la.</p>
+                    <a href="/kontak" class="cta-button">Kontakte Nou</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>REV Konstriksyon</h3>
+                    <p>Nou transfòme vizyon ou an reyalite.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p>Email: info@revkonstriksyon.com</p>
+                    <p>Telefòn: (509) 1234-5678</p>
+                    <p>Adrès: 123 Ri Konstriksyon, Pòtoprens, Ayiti</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Lyen Rapid</h3>
+                    <p><a href="/">Akèy</a></p>
+                    <p><a href="/sevis">Sèvis</a></p>
+                    <p><a href="/pwojè">Pwojè</a></p>
+                    <p><a href="/ekip">Ekip</a></p>
+                    <p><a href="/kontak">Kontak</a></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 REV Konstriksyon. Tout dwa rezève.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const slider = document.querySelector('.before-after-slider');
+        const sliderHandle = slider.querySelector('.slider-handle');
+        const imgOverlay = slider.querySelector('.img-overlay');
+
+        function updateSlider(x) {
+            const sliderRect = slider.getBoundingClientRect();
+            const percentage = (x - sliderRect.left) / sliderRect.width * 100;
+            imgOverlay.style.width = `${percentage}%`;
+            sliderHandle.style.left = `${percentage}%`;
+        }
+
+        slider.addEventListener('mousemove', (e) => {
+            if (e.buttons === 1) {
+                updateSlider(e.clientX);
+            }
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            updateSlider(e.touches[0].clientX);
+        });
+    </script>
+</body>
+</html>

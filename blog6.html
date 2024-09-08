@@ -1,12 +1,12 @@
-
 <html lang="ht">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pwojè REV Konstriksyon - Reyalizasyon Eksepsyonèl nan Domèn Konstriksyon</title>
+<title>5 Konsèy pou Chwazi Materyèl Konstriksyon ki Dire - REV Konstriksyon Blog</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
     :root {
         --primary-color: FF0000;
@@ -108,9 +108,9 @@
         transform: scaleX(1);
     }
     
-    .hero {
-        height: 70vh;
-        background-image: url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    .article-hero {
+        height: 50vh;
+        background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
         background-size: cover;
         background-position: center;
         display: flex;
@@ -119,205 +119,164 @@
         position: relative;
     }
     
-    .hero::before {
+    .article-hero::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        background: linear-gradient(45deg, rgba(196, 30, 58, 0.7), rgba(26, 26, 26, 0.7));
     }
     
-    .hero-content {
+    .article-hero-content {
         text-align: center;
         position: relative;
         z-index: 1;
     }
     
-    .hero h1 {
-        font-size: 4rem;
+    .article-hero h1 {
+        font-size: 3rem;
         margin-bottom: 1rem;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     
-    .hero p {
-        font-size: 1.5rem;
-        max-width: 800px;
-        margin: 0 auto;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-    
-    .renovation-types {
-        padding: 5rem 0;
-    }
-    
-    .renovation-type {
-        margin-bottom: 3rem;
-        padding: 2rem;
-        background-color: var(--secondary-color);
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .renovation-type h3 {
-        color: var(--primary-color);
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-    
-    .renovation-type ul {
-        list-style-type: none;
-        padding-left: 0;
-    }
-    
-    .renovation-type li {
-        margin-bottom: 0.5rem;
-        padding-left: 1.5rem;
-        position: relative;
-    }
-    
-    .renovation-type li::before {
-        content: '\f058';
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 900;
-        color: var(--primary-color);
-        position: absolute;
-        left: 0;
-    }
-    
-    .process {
-        background-color: var(--secondary-color);
-        padding: 5rem 0;
-    }
-    
-    .process-title {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
-        color: var(--primary-color);
-    }
-    
-    .process-steps {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    
-    .process-step {
-        flex-basis: calc(25% - 2rem);
-        text-align: center;
-        padding: 1rem;
-    }
-    
-    .step-number {
-        font-size: 3rem;
-        font-weight: bold;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-    }
-    
-    .step-title {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-    }
-    
-    .step-description {
-        font-size: 0.9rem;
+    .article-meta {
+        font-size: 1rem;
         color: var(--light-text);
-    }
-    
-    .cta {
-        padding: 5rem 0;
-        text-align: center;
-        background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80');
-        background-size: cover;
-        background-position: center;
-        position: relative;
-    }
-    
-    .cta::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(26, 26, 26, 0.8);
-    }
-    
-    .cta-content {
-        position: relative;
-        z-index: 1;
-    }
-    
-    .cta-title {
-        font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: var(--primary-color);
     }
     
-    .cta-description {
-        font-size: 1.2rem;
-        max-width: 800px;
-        margin: 0 auto 2rem;
+    .article-content {
+        padding: 4rem 0;
+    }
+    
+    .article-body {
+        background-color: var(--secondary-color);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .article-body h2 {
+        color: var(--primary-color);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .article-body p {
+        margin-bottom: 1.5rem;
+    }
+    
+    .article-body ul {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+    
+    .article-body li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .article-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin: 1.5rem 0;
+    }
+    
+    .share-buttons {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .share-button {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background-color 0.3s ease;
+    }
+    
+    .share-button:hover {
+        background-color: #9B1C2F;
+    }
+    
+    .pro-tip {
+        background-color: rgba(196, 30, 58, 0.1);
+        border-left: 4px solid var(--primary-color);
+        padding: 1rem;
+        margin: 1.5rem 0;
+        border-radius: 0 5px 5px 0;
+    }
+    
+    .pro-tip h3 {
+        color: var(--primary-color);
+        margin-top: 0;
+    }
+    
+    .material-comparison {
+        overflow-x: auto;
+        margin: 2rem 0;
+    }
+    
+    .material-comparison table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .material-comparison th, .material-comparison td {
+        border: 1px solid var(--accent-color);
+        padding: 0.5rem;
+        text-align: left;
+    }
+    
+    .material-comparison th {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+    }
+    
+    .material-comparison tr:nth-child(even) {
+        background-color: rgba(255,255,255,0.05);
+    }
+    
+    .expert-quote {
+        font-style: italic;
+        border-left: 4px solid var(--accent-color);
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .cta-section {
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        padding: 2rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+        text-align: center;
     }
     
     .cta-button {
         display: inline-block;
-        padding: 1rem 2rem;
-        background-color: var(--primary-color);
-        color: var(--text-color);
-        text-decoration: none;
+        background-color: var(--text-color);
+        color: var(--primary-color);
+        padding: 0.8rem 1.5rem;
         border-radius: 5px;
-        font-size: 1.2rem;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 1rem;
         transition: background-color 0.3s ease, transform 0.3s ease;
     }
     
     .cta-button:hover {
-        background-color: #9B1C2F;
-        transform: scale(1.05);
-    }
-    
-    .why-choose-us {
-        background-color: var(--secondary-color);
-        padding: 5rem 0;
-    }
-    
-    .why-choose-us h2 {
-        text-align: center;
-        color: var(--primary-color);
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
-    }
-    
-    .reasons-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-    }
-    
-    .reason-item {
-        text-align: center;
-        padding: 1.5rem;
-        background-color: var(--background-color);
-        border-radius: 10px;
-        transition: transform 0.3s ease;
-    }
-    
-    .reason-item:hover {
-        transform: translateY(-10px);
-    }
-    
-    .reason-item i {
-        font-size: 3rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-    }
-    
-    .reason-item h4 {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
+        background-color: var(--accent-color);
+        transform: translateY(-3px);
     }
     
     footer {
@@ -510,7 +469,9 @@
     
     
     
+    
 </style>
+</head>
 <svg width="0" height="0" class="hidden">
         <defs>
             <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -519,9 +480,8 @@
             </linearGradient>
         </defs>
     </svg>
-</head>
 <body>
-   <header id="main-header">
+ <header id="main-header">
         <nav class="container">
             <div class="header-left">
                 <a href="index.html" class="logo">
@@ -545,106 +505,117 @@
         </nav>
     </header>
 
-   <main>
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Renovasyon</h1>
-            <p>Renovasyon se yon opòtinite pou ou pote transfòmasyon reyèl ak enpak nan espas ou. Nou pa sèlman chanje estetik la, nou kreye yon anviwònman ki fonksyonèl, modèn, epi adapte ak vizyon ou. Chak pwojè nou fè ranfòse kay ou oswa biznis ou, pandan nap ogmante valè ak efikasite li.</p>
+  <main>
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <h1>7 Avantaj Pou Kay Ou Robotize Ak Domotik</h1>
+            <div class="article-meta">
+                <span>Ekri pa Jhonny Pierre, Enjenyè Elektwo-Mekanik</span> | 
+                <span>Pibliye le 9 Septanm 2024</span> |
+                <span>Dènye Mizajou: 10 Septanm 2024</span>
+            </div>
         </div>
     </section>
 
-    <section class="before-after container">
-            <h2>Avan ak Aprè</h2>
-            <div class="before-after-slider">
-                <img src="foto/terasavan.jpg" alt="Jaden Kanapeve aprè renovasyon">
-                <div class="img-overlay">
-                    <img src="foto/terasapre.jpg" alt="Jaden Kanapeve avan renovasyon">
-                </div>
-                <div class="slider-handle"></div>
-            </div>
-        </section>
+    <section class="article-content container">
+        <div class="article-body">
+            <p>
+                Kay robotize ak sistèm domotik yo pa senpleman yon tandans teknolojik, yo ofri benefis pratik ak fonksyonèl ki ka chanje fason w viv chak jou. Sistèm entèlijan sa yo pèmèt ou kontwole plizyè aspè nan kay ou, tankou sekirite, ekleraj, klima, ak menm aparèy elektwonik ou yo, nan yon fason ki pi efikas. Nan atik sa a, nou pral dekri 7 avantaj prensipal yo lè w entegre teknoloji domotik nan kay ou.
+            </p>
 
-    <section class="renovation-types container">
-
-        <div class="renovation-type">
-            <h3>Renovasyon Entèn ak Ekstèn</h3>
+            <h2>1. Kontwòl Remòt ak Aksè Adistans</h2>
+            <p>
+                Youn nan pi gwo avantaj kay robotize se kapasite pou w kontwole kay ou a distans, nenpòt kote w ye nan mond lan. Avèk yon aplikasyon senp sou telefòn entèlijan w, ou ka:
+            </p>
             <ul>
-                <li>Renovasyon kwizin ak twalèt pou yon espas modèn ak efikas</li>
-                <li>Chanjman planche ak plafon ak materyèl de kalite siperyè</li>
-                <li>Amelyorasyon espas travay ak biwo, optimize pou pwodiktivite</li>
-                <li>Fasad ki atire, teras, jaden, ak pisin ki fè lakay ou vin yon oasis de detant</li>
-                <li>Ranfòsman estrikti pou sekirite ak longévité</li>
-                <li>Entegrasyon teknoloji avanse: sistèm sekirite, jaden entelijan, ak automatisasyon lakay ou</li>
+                <li>Ajiste tanperati a</li>
+                <li>Etèn ekleraj oswa fèmen aparèy yo</li>
+                <li>Veye sistèm sekirite w yo</li>
             </ul>
-        </div>
-    </section>
+            <p>
+                Sa a ofri w plis lapè nan tèt ak sekirite, espesyalman lè w pa lakay ou. Ou ka verifye si pòt yo byen fèmen oswa kamera sekirite yo ap fonksyone kòrèkteman.
+            </p>
 
-    <section class="process">
-        <div class="container">
-            <h2 class="process-title">Kijan Nou Fè Renovasyon?</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Evalyasyon ak Konsiltasyon Personalize</h3>
-                    <p class="step-description">Nou fè yon analiz detaye nan espas ou epi diskite sou bezwen ou yo pou devlope yon solisyon ki pa sèlman reyalis, men ki depase atant ou.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Planifikasyon ak Desen Teknolojik</h3>
-                    <p class="step-description">Nou pa sèlman kreye plan sofistike, men nou entegre teknoloji avanse pou asire ke renovasyon ou a modèn ak efikas.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Preparasyon Travay ak Teknoloji Robotize</h3>
-                    <p class="step-description">Nou prepare espas la ak ekipman modèn ak robotize pou ogmante presizyon ak efikasite pandan travay la.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Konstriksyon ak Enstalasyon Teknolojik</h3>
-                    <p class="step-description">Nou fè travay konstriksyon an pandan nap enstale sistèm entèlijan pou elektrisite, plonbri, ak lòt teknoloji ki fè espas ou inovatè.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h3 class="step-title">Finalizasyon ak Enspeksyon</h3>
-                    <p class="step-description">Nou fè tout fini, ajoute dènye manyen yo, epi fè yon enspeksyon konplè pou asire ke tout bagay fèt avèk presizyon epi ke espas ou a prè pou itilize.</p>
-                </div>
+            <h2>2. Ekonomi Enèji Ak Pri</h2>
+            <p>
+                Sistèm domotik yo pèmèt w jere enèji nan kay ou avèk plis efikasite. Ou ka pwograme aparèy yo pou etenn otomatikman lè yo pa nan itilizasyon, epi ajiste klima a sèlman lè sa nesesè. Men kèk egzanp:
+            </p>
+            <ul>
+                <li>Thermostat entèlijan ki ajiste selon tanperati deyò a</li>
+                <li>Sistèm ekleraj ki etenn lè pa gen moun nan chanm yo</li>
+                <li>Panno solè entegre nan sistèm jere enèji kay la</li>
+            </ul>
+            <p>
+                Avèk solisyon sa yo, ou pa sèlman diminye konsomasyon enèji men ou redwi tou pri bòdwo elektrisite w yo.
+            </p>
+
+            <h2>3. Ogmantasyon Sekirite</h2>
+            <p>
+                Avèk entegre teknoloji domotik nan kay ou, ou ka amelyore sekirite w sou plizyè nivo. Sistèm entèlijan yo ofri plizyè opsyon sekirite tankou:
+            </p>
+            <ul>
+                <li>Kamera sekirite ki pèmèt ou wè kay ou an dirèk atravè telefòn ou</li>
+                <li>Detèktè mouvman ak alèt imedya sou telefòn ou an ka de entrizyon</li>
+                <li>Sistèm fèmen pòt entèlijan ak kòd dijital</li>
+            </ul>
+            <p>
+                Teknoloji sa yo ba w plis kontwòl sou sekirite kay ou, epi yo ka fè alèt sekirite oswa otorite yo imedyatman si gen yon pwoblèm.
+            </p>
+
+            <img src="https://images.unsplash.com/photo-1579429372377-47ef9460b67a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Sekirite entèlijan nan kay domotik" class="article-image">
+
+            <h2>4. Amelyorasyon Konfò Ak Konvenyans</h2>
+            <p>
+                Kay robotize ak domotik yo fèt pou amelyore konfò chak jou ou. Ou ka kontwole ekleraj, tanperati, ak menm anviwònman son yo san ou pa bezwen deplase. Avèk yon ti klik, ou ka kreye yon anbyans konplè lakay ou, ki adapte ak bezwen w oswa preferans ou pou yon moman espesifik.
+            </p>
+            <p>
+                Lè ou rive lakay ou, kay la ka ajiste limyè yo otomatikman, mete yon mizik apwopriye, e menm ajiste klima a selon preferans ou.
+            </p>
+
+            <h2>5. Planifikasyon ak Pwogramasyon Otomatik</h2>
+            <p>
+                Sistèm domotik pèmèt ou planifye aksyon yo nan kay ou pou yo fèt otomatikman. Ou ka pwograme orè kote:
+            </p>
+            <ul>
+                <li>Limyè yo etenn lè ou kite kay la</li>
+                <li>Klima ajiste lè ou antre oswa kite travay</li>
+                <li>Pòt garaj la ouvè lè w ap rive lakay ou</li>
+            </ul>
+            <p>
+                Sa bay yon nivo konvenyans ak otomatik ki ka fè lavi ou pi fasil pandan jounen an.
+            </p>
+
+            <h2>6. Valè Ajoute Pou Pwopriyete W</h2>
+            <p>
+                Yon kay ak sistèm domotik ogmante valè li sou mache a. Envestisè ak achtè yo gen plis chans pou yo enterese nan yon pwopriyete ki deja ekipe ak teknoloji entèlijan, paske li bay plis sekirite, konvenyans, ak ekonomi enèji. Yon kay entèlijan fè kay ou pi atiran sou mache a epi ogmante valè revant li.
+            </p>
+
+            <h2>7. Sante Ak Sekirite Siplemantè</h2>
+            <p>
+                Domotik pa sèlman amelyore konfò; li kapab amelyore sante ou tou. Avèk sistèm pou kontwole bon jan kalite lè, detèktè monoksid kabòn, ak ajisteman klima, ou ka asire ke anviwònman lakay ou rete an sante. Ou ka menm entegre teknoloji pou monitore alèji ak nivo imidite pou anpeche pwoblèm sante.
+            </p>
+
+            <p>
+                An konklizyon, envesti nan yon kay robotize ak domotik se pa sèlman yon tandans, men yon solisyon pratik ki amelyore konvenyans, sekirite, ak valè pwopriyete ou. Li ofri anpil benefis ki fè lavi w pi fasil, plis pwodiktif, epi pi san danje.
+            </p>
+
+            <div class="cta-section">
+                <h3>Vle Transforme Kay Ou Nan Yon Kay Entèlijan?</h3>
+                <p>Nan REV Konstriksyon, nou gen eksperyans nan entegre teknoloji domotik ki adapte ak bezwen w. Kontakte nou jodi a pou yon konsiltasyon ak yon pwofesyonèl!</p>
+                <a href="kontak.html" class="cta-button">Kontakte Nou</a>
             </div>
-        </div>
-    </section>
 
-    <section class="why-choose-us">
-        <div class="container">
-            <h2>Poukisa Chwazi REV Konstriksyon?</h2>
-            <div class="reasons-grid">
-                <div class="reason-item">
-                    <i class="fas fa-hammer"></i>
-                    <h4>Ekspètiz Konplè</h4>
-                    <p>Nou gen konesans nan tout aspè renovasyon—soti nan estetik, konstriksyon, jaden, jiska automatisasyon teknolojik.</p>
-                </div>
-                <div class="reason-item">
-                    <i class="fas fa-tools"></i>
-                    <h4>Materyèl Avanse</h4>
-                    <p>Nou itilize sèlman materyèl dènye kri ki reziste ak ki siperyè nan kalite.</p>
-                </div>
-                <div class="reason-item">
-                    <i class="fas fa-thumbs-up"></i>
-                    <h4>Renovasyon Inovatè</h4>
-                    <p>Nou entegre teknoloji modèn ak solisyon entelijan ki fè espas ou pi efikas, sekirize, ak konvivan.</p>
-                </div>
-                <div class="reason-item">
-                    <i class="fas fa-clock"></i>
-                    <h4>Livrezon Alè</h4>
-                    <p>Nou delivre travay ou a nan tan san okenn retar, pandan nap kenbe kalite nan tout etap.</p>
-                </div>
+            <div class="share-buttons">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://revkonstriksyon.com/blog/7-avantaj-kay-robotize" class="share-button" target="_blank">
+                    <i class="fab fa-facebook-f"></i> Pataje
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://revkonstriksyon.com/blog/7-avantaj-kay-robotize&text=7 Avantaj Pou Kay Ou Robotize Ak Domotik" class="share-button" target="_blank">
+                    <i class="fab fa-twitter"></i> Tweet
+                </a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://revkonstriksyon.com/blog/7-avantaj-kay-robotize&title=7 Avantaj Pou Kay Ou Robotize Ak Domotik" class="share-button" target="_blank">
+                    <i class="fab fa-linkedin-in"></i> Pataje
+                </a>
             </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="cta-content">
-            <h2 class="cta-title">Renove Avni Ou Jodi a!</h2>
-            <p class="cta-description">Kreye yon espas ki reyèlman reflete rèv ou ak bezwen ou. Kontakte nou jodi a pou yon konsiltasyon gratis epi kòmanse ak pwojè renovasyon ou.</p>
-            <a href="kontak.html" class="cta-button">Kontakte Nou pou yon Estimasyon Gratis</a>
         </div>
     </section>
 </main>
@@ -654,8 +625,8 @@
 
 
 
-    <footer>
-         <div class="container footer-content">
+<footer>
+        <div class="container footer-content">
             <div class="footer-section">
                 <h3>REV Konstriksyon</h3>
                 <p>Nou se yon konpayi ki espesyalize nan renovasyon, ak konstriksyon pou kay ak biznis. Nou ofri sèvis pwofesyonèl ak solisyon kreyatif pou reyalize vizyon kliyan nou yo, ak yon angajman pou bon jan kalite ak presizyon. Avèk nou, ou jwenn yon patnè serye pou transfòme ide ou yo an reyalite konkrè.</p>
@@ -680,8 +651,7 @@
             <p>&copy; 2024 REV Konstriksyon. Tout dwa rezève.</p>
         </div>
     </footer>
-
- <nav class="bottom-nav">
+	<nav class="bottom-nav">
         <a href="sevis.html" class="nav-item">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
             <span>Sèvis</span>
@@ -702,103 +672,62 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm-1 14.25H6v-1.5h12v1.5zm0-3.75H6v-1.5h12v1.5zm0-3.75H6v-1.5h12v1.5z"/></svg>
             <span>Blog</span>
         </a>
-    </nav>
-<div class="floating-message-btn">
+    <div class="floating-message-btn">
 <a href="kontak.html" class="nav-item">
         <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
         </svg> </a>
     </div>
-
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animate hero section
-        gsap.from('.hero-content', {
-            opacity: 0,
+        // Animate hero content
+        gsap.from('.article-hero-content', {
             y: 50,
-            duration: 1,
-            delay: 0.5
-        });
-
-        // Animate extension types
-        gsap.utils.toArray('.extension-type').forEach(item => {
-            gsap.from(item, {
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: item,
-                    start: "top bottom-=100",
-                    toggleActions: "play none none reverse"
-                }
-            });
-        });
-
-        // Animate process steps
-        gsap.utils.toArray('.process-step').forEach((step, index) => {
-            gsap.from(step, {
-                opacity: 0,
-                x: index % 2 === 0 ? -50 : 50,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: step,
-                    start: "top bottom-=100",
-                    toggleActions: "play none none reverse"
-                }
-            });
-        });
-
-        // Animate reasons
-        gsap.utils.toArray('.reason-item').forEach(item => {
-            gsap.from(item, {
-                opacity: 0,
-                y: 30,
-                duration: 0.8,
-                scrollTrigger: {
-                    trigger: item,
-                    start: "top bottom-=50",
-                    toggleActions: "play none none reverse"
-                }
-            });
-        });
-
-        // Animate CTA section
-        gsap.from('.cta-content', {
             opacity: 0,
-            y: 50,
             duration: 1,
+            ease: 'power3.out'
+        });
+
+        // Animate article body
+        gsap.from('.article-body > *', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
             scrollTrigger: {
-                trigger: '.cta',
-                start: "top bottom-=100",
-                toggleActions: "play none none reverse"
+                trigger: '.article-body',
+                start: 'top 80%',
+                end: 'bottom 20%',
+                scrub: 1,
+                toggleActions: 'play none none reverse'
             }
         });
 
-        // Parallax effect for hero section
-        gsap.to('.hero', {
+        // Animate article images
+        gsap.from('.article-image', {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.article-image',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Parallax effect for article hero section
+        gsap.to('.article-hero', {
             backgroundPosition: "50% 100%",
             ease: "none",
             scrollTrigger: {
-                trigger: '.hero',
+                trigger: '.article-hero',
                 start: "top top",
                 end: "bottom top",
                 scrub: true
             }
         });
-		 // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-	
-
-		 const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
+const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
         bottomNavLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -823,6 +752,54 @@
         }
 
         
+
+        // Animate pro tips
+        gsap.from('.pro-tip', {
+            x: -50,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.pro-tip',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Animate expert quote
+        gsap.from('.expert-quote', {
+            x: 50,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.expert-quote',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Animate material comparison table
+        gsap.from('.material-comparison', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.material-comparison',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Animate CTA section
+        gsap.from('.cta-section', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.cta-section',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
     </script>
 </body>
 </html>

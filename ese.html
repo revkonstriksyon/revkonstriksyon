@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Live Chat</title>
+</head>
+<body>
+    <div class="contact-chat">
+        <h2>Pale ak yon Ajan Andirek</h2>
+        <div class="chat-window" id="chatWindow">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Tape mesaj ou a...">
+            <button onclick="sendMessage()">Voye</button>
+        </div>
+        <div class="suggestion-chips">
+            <span class="suggestion-chip" onclick="useSuggestion('Kijan mwen ka jwenn yon estimasyon?')">Kijan mwen ka jwenn yon estimasyon?</span>
+            <span class="suggestion-chip" onclick="useSuggestion('Ki sèvis nou ofri?')">Ki sèvis nou ofri?</span>
+            <span class="suggestion-chip" onclick="useSuggestion('Èske nou travay nan zòn mwen an?')">Èske nou travay nan zòn mwen an?</span>
+        </div>
+    </div>
+
+    <script>
+        const chatWindow = document.getElementById('chatWindow');
+        const chatInput = document.getElementById('chatInput');
+
+        async function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message !== "") {
+                // Ajoute mesaj itilizatè a
+                addMessageToChat('Ou', message);
+                chatInput.value = ''; // Vide bwat mesaj la
+
+                // Voye mesaj bay ChatGPT via backend
+                try {
+                    const response = await fetch('http://localhost:5000/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message })
+                    });
+                    const chatGPTResponse = await response.json();
+                    addMessageToChat('ChatGPT', chatGPTResponse);
+                } catch (error) {
+                    addMessageToChat('ChatGPT', 'Gen yon erè. Eseye anko.');
+                }
+            }
+        }
+
+        function addMessageToChat(sender, message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message');
+            messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatWindow.appendChild(messageElement);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function useSuggestion(text) {
+            chatInput.value = text;
+            sendMessage();
+        }
+    </script>
+</body>
+</html>

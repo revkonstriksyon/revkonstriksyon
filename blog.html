@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="ht">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
 	
 	<style>
     :root {
-        --primary-color: #C41E3A;
+        --primary-color: FF0000;
         --secondary-color: #1A1A1A;
         --accent-color: #D3D3D3;
         --background-color: #0F0F0F;
@@ -279,130 +279,179 @@
         border-top: 1px solid rgba(255,255,255,0.1);
     }
     
-    @media (max-width: 768px) {
-        .nav-links {
-            display: none;
-        }
-        
-        .blog-hero h1 {
-            font-size: 2.5rem;
-        }
-        
-        .blog-hero p {
-            font-size: 1.2rem;
-        }
-        
-        .footer-content {
-            flex-direction: column;
-        }
-        
-        .footer-section {
-            margin-bottom: 2rem;
-        }
-    }
-		.nav-links {
-  display: none; /* Kache pa default */
-  list-style: none;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 60px; /* Ajiste pozisyon selon bezwen ou */
-  left: 0;
-  width: 100%;
-  background-color: #1A1A1A; /* Chanje koulè si ou vle */
-  z-index: 1000;
-}
-
-/* Montre nav bar la lè li gen klas 'active' */
-.nav-links.active {
-  display: flex;
-}
-
-    
-    
-    
-    .nav-links li {
-        margin-left: 2rem;
-    }
-    
-    .nav-links a {
-        text-decoration: none;
-        color: var(--light-text);
-        font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-        padding: 5px 0;
-    }
-    
-    .nav-links a::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: var(--primary-color);
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-    }
-    
-    .nav-links a:hover::after {
-        transform: scaleX(1);
-    }
-    
-    .menu-toggle {
+   .menu-toggle {
         display: none;
         cursor: pointer;
         font-size: 1.5rem;
         color: var(--light-text);
     }
-    
-    @media (max-width: 768px) {
-        .nav-links {
-            position: fixed;
-            top: 70px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 70px);
-            background-color: var(--secondary-color);
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.5s ease;
-        }
-        
-        .nav-links.active {
-            left: 0;
-        }
-        
-        .nav-links li {
-            margin: 1.5rem 0;
+
+    @media (max-width: 1024px) {
+        .header-right .nav-links {
+            display: none;
         }
         
         .menu-toggle {
             display: block;
         }
     }
+
+    @media (min-width: 1025px) {
+        .bottom-nav, .floating-message-btn {
+            display: none;
+        }
+    }
+
+    .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 7px 0;
+        position: fixed;
+        bottom: 0;
+        left: 15;
+        right: 15;
+        background-color: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+		border-radius: 15px;
+    }
+
+    .bottom-nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--light-text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        padding: 5px 0;
+    }
+
+    .bottom-nav a svg {
+        width: 28px;
+        height: 28px;
+        margin-bottom: 5px;
+        transition: all 0.3s ease;
+        fill: url(#icon-gradient);
+    }
+
+    .bottom-nav .home-item {
+        transform: translateY(-15px);
+    }
+
+    .bottom-nav .home-item svg {
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        padding: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .bottom-nav a:not(.home-item) {
+        flex: 1;
+    }
+
+    @keyframes iconPulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .bottom-nav a.active svg {
+        animation: iconPulse 1.5s infinite;
+    }
+
+    .floating-message-btn {
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
+
+    .floating-message-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .floating-message-btn svg {
+        width: 28px;
+        height: 28px;
+        fill: white;
+    }
+
+    @media (min-width: 1025px) {
+        .bottom-nav {
+            display: none;
+        }
+        
+        .floating-message-btn {
+            bottom: 20px;
+        }
+    }
+    
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    
+    
+    
+    
 </style>
 </head>
-
+<svg width="0" height="0" class="hidden">
+        <defs>
+            <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF0000" />
+                <stop offset="100%" stop-color="#1A1A1A" />
+            </linearGradient>
+        </defs>
+    </svg>
 <body>
  <header id="main-header">
         <nav class="container">
-				<a href="index.html" class="logo">
+            <div class="header-left">
+                <a href="index.html" class="logo">
                 <img src="logo.png" alt="REV Konstriksyon Logo" width="50" height="50">
                 <span>REV Konstriksyon</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Akèy</a></li>
+            </div>
+            <div class="header-right">
+                <div class="menu-toggle" id="menuToggle">
+                   
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Akèy</a></li>
                 <li><a href="sevis.html">Sèvis</a></li>
                 <li><a href="pwoje.html">Pwojè</a></li>
                 <li><a href="ekip.html">Ekip</a></li>
 				<li><a href="blog.html">Blog</a></li>
                 <li><a href="kontak.html">Kontak</a></li>
-            </ul>
-			<div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+                </ul>
             </div>
         </nav>
     </header>
@@ -416,21 +465,43 @@
         </section>
 
         <section class="blog-section container">
-            <div class="blog-grid">
-                <article class="blog-card">
+            <div class="blog-grid">               		
+				<article class="blog-card">
                     <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
                     <div class="blog-content">
                         <h3>5 Konsèy pou Chwazi Materyèl Konstriksyon ki Dire</h3>
-                        <p>Aprann kijan pou w chwazi pi bon materyèl konstriksyon ki pral dire lontan epi bay valè pou lajan w.</p>
+                        <p>Nan domèn konstriksyon an Ayiti, chwazi bon materyèl se yon etap krisyal pou asire dirabilite ak sekirite yon estrikti. Antan ke yon peyi ki souvan fè fas ak defi klimatik ak jeolojik, li esansyèl pou nou pran desizyon entelijan lè n ap chwazi materyèl konstriksyon nou yo. Nan atik sa a, nou pral eksplore an detay 5 konsèy enpòtan ki ka ede w chwazi materyèl konstriksyon ki pral dire lontan, ekonomize lajan alontèm, epi amelyore kalite konstriksyon ou yo.</p>
                         <a href="blog1.html" class="read-more">Li Plis</a>
                     </div>
                 </article>
-                
+				<article class="blog-card">
+                    <div class="blog-image" style="background-image: url('foto/blog2.jpeg');"></div>
+                    <div class="blog-content">
+                        <h3>Poukisa Ou Dwe Lanse W nan Imobilye pou Ane 2025 la</h3>
+                        <p>Endistri imobilye toujou te youn nan pi estab ak pwomèt nan mond lan, e ane 2025 lan pwomèt pou li se yon ane kritik pou moun ki vle envesti oswa kòmanse nan domèn sa a. Pandan peyi Ayiti ap fè fas ak plizyè chanjman ekonomik ak sosyal, sektè imobilye a ofri yon chans inik pou kapitalizasyon, devlopman pèsonèl ak kolektif, epi pwotektè kapital.</p>
+                        <a href="blog2.html" class="read-more">Li Plis</a>
+                    </div>
+                </article>
+				<article class="blog-card">
+                    <div class="blog-image" style="background-image: url('foto/blog3.jpeg');"></div>
+                    <div class="blog-content">
+                        <h3>Kijan Pou W Repare Yon Dal Ki Koule</h3>
+                        <p>Yon dal ki koule pa sèlman yon pwoblèm kosmetik, men se tou yon menas grav pou dirabilite kay ou ak sekirite fanmi ou. Koulman an ka degrade estrikti a, lakòz domaj nan sistèm elektrik ak miray yo, e finalman, ogmante depans antretyen alontèm si yo pa trete l rapidman. Nan peyi tankou Ayiti kote kondisyon klimatik yo se yon gwo faktè, li esansyèl pou adrese pwoblèm koulman yo avèk teknik sofistike ki asire sekirite ak estabilite estrikti w lan sou yon peryòd tan ki long.</p>
+                        <a href="blog3.html" class="read-more">Li Plis</a>
+                    </div>
+                </article>
+				<article class="blog-card">
+                    <div class="blog-image" style="background-image: url('foto/blog4.jpeg');"></div>
+                    <div class="blog-content">
+                        <h3>Poukisa Li Enpòtan Pou Konstwi Avèk Materyèl Parasismik?</h3>
+                        <p>Konstwi avèk materyèl parasismik se yon nesesite ki pa ka neglije, espesyalman nan peyi tankou Ayiti kote risk sismik se yon reyalite chak jou. Kòm enjenyè sivil, li enpòtan pou nou konprann enpak potansyèl tranblemanntè yo epi kijan materyèl ak teknik parasismik ka sove lavi, pwoteje pwopriyete, ak fè estrikti nou yo pi dirab. Nan atik sa a, nou pral eksplike poukisa ou dwe konsidere materyèl parasismik kòm yon eleman esansyèl nan pwojè konstriksyon ou yo.</p>
+                        <a href="blog4.html" class="read-more">Li Plis</a>
+                    </div>
+                </article>               
             </div>
             <div class="pagination">
                 <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
+                
                 <a href="#">Swivan</a>
             </div>
         </section>
@@ -463,6 +534,33 @@
             <p>&copy; 2024 REV Konstriksyon. Tout dwa rezève.</p>
         </div>
     </footer>
+	<nav class="bottom-nav">
+        <a href="sevis.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+            <span>Sèvis</span>
+        </a>
+        <a href="pwoje.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 2H7C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4zm-5 14c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/></svg>
+            <span>Pwojè</span>
+        </a>
+        <a href="index.html" class="nav-item home-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm9-8.586 6 6V15l.001 5H6v-9.586l6-6z"/></svg>
+            <span>Akèy</span>
+        </a>
+        <a href="ekip.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            <span>Ekip</span>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm-1 14.25H6v-1.5h12v1.5zm0-3.75H6v-1.5h12v1.5zm0-3.75H6v-1.5h12v1.5z"/></svg>
+            <span>Blog</span>
+        </a>
+    <div class="floating-message-btn">
+<a href="kontak.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+        </svg> </a>
+    </div>
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
@@ -499,25 +597,32 @@
             }
         });
 
-		 document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", function() {
-      navLinks.classList.toggle("active");
-    });
-  });
-
-
-        // Smooth scroll for pagination
-        document.querySelectorAll('.pagination a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+// Mobile menu toggle
+       const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
+        bottomNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector('.blog-section').scrollIntoView({
-                    behavior: 'smooth'
-                });
+                bottomNavLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                const icon = this.querySelector('svg');
+                icon.style.animation = 'none';
+                icon.offsetHeight; 
+                icon.style.animation = null;
+
+                setTimeout(() => {
+                    window.location.href = this.getAttribute('href');
+                }, 300);
             });
         });
+
+        const currentPath = window.location.pathname;
+        const currentLink = document.querySelector(`.bottom-nav a[href="${currentPath}"]`);
+        if (currentLink) {
+            currentLink.classList.add('active');
+        }
+
+        
     </script>
 </body>
 </html>

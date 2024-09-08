@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="ht">
 <head>
     <meta charset="UTF-8">
@@ -12,22 +12,36 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 </head>
+
 <body>
+<svg width="0" height="0" class="hidden">
+        <defs>
+            <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF0000" />
+                <stop offset="100%" stop-color="#1A1A1A" />
+            </linearGradient>
+        </defs>
+    </svg>
     <header id="main-header">
         <nav class="container">
-				<a href="index.html" class="logo">
+            <div class="header-left">
+                <a href="index.html" class="logo">
                 <img src="logo.png" alt="REV Konstriksyon Logo" width="50" height="50">
                 <span>REV Konstriksyon</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Akèy</a></li>
+            </div>
+            <div class="header-right">
+                <div class="menu-toggle" id="menuToggle">
+                   
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Akèy</a></li>
+                <li><a href="sevis.html">Sèvis</a></li>
                 <li><a href="pwoje.html">Pwojè</a></li>
                 <li><a href="ekip.html">Ekip</a></li>
 				<li><a href="blog.html">Blog</a></li>
                 <li><a href="kontak.html">Kontak</a></li>
-            </ul>
-			<div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+                </ul>
             </div>
         </nav>
     </header>
@@ -61,7 +75,7 @@
                         <div class="service-content">
                             <h3>Renovasyon</h3>
                             <p>Renovasyon se atizay transfòme espas ki egziste deja pou kreye yon anviwònman ki pi bèl, plis fonksyonèl, ak pi adapte ak bezwen ou yo. Nou pran swen chak detay pou asire yon rezilta ki depase atant ou, pote nouvo lavi ak valè nan chak mèt kare nan espas ou.</p>
-                            <a href="#" class="cta-button">Aprann Plis</a>
+                            <a href="renovasyon.html" class="cta-button">Aprann Plis</a>
                         </div>
                     </div>
                     <div class="service-card">
@@ -69,7 +83,7 @@
                         <div class="service-content">
                             <h3>Ekstansyon</h3>
                             <p>Ekstansyon se pwosesis pou agrandi espas ou genyen deja, kreye plis chanm ak zòn pou viv, travay, oswa detann. Avèk yon planifikasyon presi ak ekzekisyon metikule, nou maksimize chak mèt kare pou ogmante valè ak konfò nan kay ou oswa espas komèsyal ou, asire ke li adapte parfe ak estrikti egzistan an pandan n ap reyalize vizyon ou.</p>
-                            <a href="#" class="cta-button">Aprann Plis</a>
+                            <a href="ekstansyon.html" class="cta-button">Aprann Plis</a>
                         </div>
                     </div>
                     <div class="service-card">
@@ -77,7 +91,7 @@
                         <div class="service-content">
                             <h3>Varyasyon</h3>
                             <p>Varyasyon se transfòmasyon estetik espas ou a, ki ofri yon nouvo gade ak santi, san wete fonksyonalite. Nou itilize solisyon kreyatif ak materyèl kalite siperyè pou mete ajou oswa modifye detay enteryè ak eksteryè, asire yon chanjman ki reflete pèsonalite ou pandan li amelyore eksperyans chak jou ou.p>
-                            <a href="#" class="cta-button">Aprann Plis</a>
+                            <a href="varyasyon.html" class="cta-button">Aprann Plis</a>
                         </div>
                     </div>
 					<div class="service-card">
@@ -85,24 +99,34 @@
                         <div class="service-content">
                             <h3>konstriksyon</h3>
                             <p>Konstriksyon se sèvis nou bay ki soti nan fondasyon rive nan fini, asire ke chak pwojè fèt ak presizyon, bon jan kalite, ak sekirite. Nou espesyalize nan bati espas ki solid, fonksyonèl, ak estetik, pandan n'ap suiv tout estanda endistri a pou kreye estrikti ki dire lontan ak ki satisfe tout bezwen kliyan nou yo.</p>
-                            <a href="#" class="cta-button">Aprann Plis</a>
+                            <a href="konstriksyon.html" class="cta-button">Aprann Plis</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="about-section">
+         <section class="services-section">
             <div class="container">
                 <h2 class="section-title">Ki sa ki fè nou diferan?</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>Lè w chwazi nou, ou chwazi plis pase yon ekip renovasyon ak konstriksyon—ou chwazi yon patnè ki angaje nan fè rèv ou vin reyalite. Nou pote yon konbinezon inik de kreyativite, pwofesyonalis, ak yon pasyon pou detaye, asire ke chak pwojè pa sèlman satisfè, men depase atant ou. Avèk nou, ou jwenn pa sèlman yon sèvis men yon eksperyans—yon angajman pou kreye espas ki pa sèlman bèl, men ki enkarnasyon vizyon ou. Bay espas ou a yon lòt nivo avèk nou epi santi diferans lan nan chak etap!</p>
-                        <a href="ekip.html" class="cta-button">Rankontre Ekip Nou</a>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                        <div class="service-content">
+                            <h3>Nou ofri ou Lamann </h3>
+                            <p>Nou fè rèv ou tounen yon reyalite konkrè, kreye espas ki reponn a bezwen ou ak yon estetik inik. Chak pwojè avèk nou se yon chanjman ki depase tout atant, kote presizyon, kreyativite, ak ekselans travay ansanm pou ajoute yon valè ekstraòdinè. Nou pa jis bati, nou kreye espas ki make yon diferans pwofon nan lavi ou.</p>
+                            <a href="sevis.html" class="cta-button">DEKOUVRI SEVIS NOU YO</a>
+                        </div>
                     </div>
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2032&q=80" alt="Ekip REV Konstriksyon an aksyon">
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2032&q=80');"></div>
+                        <div class="service-content">
+                            <h3>Nou se Lamann</h3>
+                            <p>Lè w chwazi nou, ou chwazi plis pase yon ekip renovasyon ak konstriksyon—ou chwazi yon patnè ki angaje e k'ap pote yon konbinezon inik de kreyativite, pwofesyonalis, ak yon pasyon pou detaye, asire ke chak pwojè pa sèlman satisfè, men depase atant ou. Ekip nou an se JENI pesonèl ou men a diferans ki pa reyalize selman 3.</p>
+                            <a href="ekip.html" class="cta-button">RANKONTRE JENI YO</a>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </section>
@@ -116,15 +140,8 @@
                         <div class="project-overlay">
                             <h3 class="project-title">Konstriksyon yon Kay Modèn Delmas 55</h3>
                             
-                            <a href="#" class="cta-button">Wè Detay</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-image" style="background-image: url('foto/salonapre.jpeg');"></div>
-                        <div class="project-overlay">
-                            <h3 class="project-title">Renovasyon yon kay sou Delmas</h3>
-                           
-                            <a href="#" class="cta-button">Wè Detay</a>
+                            <a href="d55.html" class="cta-button">Wè Detay</a>
+                        
                         </div>
                     </div>
                     <div class="project-card">
@@ -132,7 +149,7 @@
                         <div class="project-overlay">
                             <h3 class="project-title">Teras nan Kanapeve</h3>
                             
-                            <a href="#" class="cta-button">Wè Detay</a>
+                            <a href="kv.html" class="cta-button">Wè Detay</a>
                         </div>
                     </div>
                 </div>
@@ -152,13 +169,8 @@
                             <p class="testimonial-content">"Mwen te toujou reve gen yon kay ki reprezante esans mwen, men m pa t janm imajine ke li t ap vin pi bèl pase sa mwen te kapab panse. Ekip REV Konstriksyon fè yon travay remakab lè yo konstwi kay mwen an san mwen menm pa t la pou wè pwosesis la. Lè mwen finalman wè kay la, li te sanble tankou yon rèv vin tounen reyalite. Chak detay te panse ak kè ak atansyon. M pa janm wè yon ekip ki pi pwofesyonèl ak angaje pase sa yo. Yo depase tout atant mwen!"</p>
                             <p class="testimonial-author">- tioby.</p>
                         </div>
-						                        <div class="testimonial-card swiper-slide">
-                            <div class="testimonial-image">
-                                <img src="foto/tioby.jpeg" alt="Pòtrè kliyan">
-                            </div>
-                            <p class="testimonial-content">"Mwen te bezwen agrandi kay mwen an pou mete l anfòm ak bezwen fanmi m ki ap grandi, men mwen pat gen anpil lajan pou fè sa. Ekip REV Konstriksyon te tande mwen epi yo te travay avèk m sou chak detay pou kreye yon espas ki pa sèlman pi gwo, men ki tou anfòm nan bidjè m. Mwen te sezi wè kijan yo te reyalize yon renovasyon kalite san depase limit mwen yo. Kay la parèt tankou yon nouvo espas, e li fè fanmi m santi l pi alèz pase tout tan!"</p>
-                            <p class="testimonial-author">- Gaby.</p>
-                        </div>
+						                        
+                        
                         <div class="testimonial-card swiper-slide">
                             <div class="testimonial-image">
                                 <img src="foto/mario.jpeg" alt="Pòtrè kliyan">
@@ -202,7 +214,34 @@
             <p>&copy; 2024 REV Konstriksyon. Tout dwa rezève.</p>
         </div>
     </footer>
-
+ <nav class="bottom-nav">
+        <a href="sevis.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+            <span>Sèvis</span>
+        </a>
+        <a href="pwoje.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 2H7C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4zm-5 14c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/></svg>
+            <span>Pwojè</span>
+        </a>
+        <a href="index.html" class="nav-item home-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm9-8.586 6 6V15l.001 5H6v-9.586l6-6z"/></svg>
+            <span>Akèy</span>
+        </a>
+        <a href="ekip.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            <span>Ekip</span>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm-1 14.25H6v-1.5h12v1.5zm0-3.75H6v-1.5h12v1.5zm0-3.75H6v-1.5h12v1.5z"/></svg>
+            <span>Blog</span>
+        </a>
+    </nav>
+<div class="floating-message-btn">
+<a href="kontak.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+        </svg> </a>
+    </div>
     <script>
         // Initialize Swiper for hero slider
         var heroSwiper = new Swiper('.hero-slider', {
@@ -218,14 +257,7 @@
         });
 
 
-      		 document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", function() {
-      navLinks.classList.toggle("active");
-    });
-  });
+      
 
         // Initialize Swiper for testimonials
         var testimonialSwiper = new Swiper('.testimonial-slider', {
@@ -266,17 +298,37 @@
             }
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        const hiddenElements = document.querySelectorAll('.service-card');
+        hiddenElements.forEach((el) => observer.observe(el));
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
+        bottomNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                bottomNavLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                const icon = this.querySelector('svg');
+                icon.style.animation = 'none';
+                icon.offsetHeight; 
+                icon.style.animation = null;
+
+                setTimeout(() => {
+                    window.location.href = this.getAttribute('href');
+                }, 300);
             });
         });
-		
+
+        const currentPath = window.location.pathname;
+        const currentLink = document.querySelector(`.bottom-nav a[href="${currentPath}"]`);
+        if (currentLink) {
+            currentLink.classList.add('active');
+        }
+
+        const floatingMessageBtn = document.querySelector('.floating-message-btn');
+        floatingMessageBtn.addEventListener('click', function() {
+            alert('Message button clicked!');
+        });
 		
     </script>
 </body>

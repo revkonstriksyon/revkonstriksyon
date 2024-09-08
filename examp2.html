@@ -1,0 +1,621 @@
+
+<html lang="ht">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pwojè REV Konstriksyon - Reyalizasyon Eksepsyonèl nan Domèn Konstriksyon</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root {
+        --primary-color: #C41E3A;
+        --secondary-color: #1A1A1A;
+        --accent-color: #D3D3D3;
+        --background-color: #0F0F0F;
+        --text-color: #FFFFFF;
+        --light-text: #E0E0E0;
+    }
+    
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    header {
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.5s ease;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+        transform: scale(1.05);
+    }
+    
+    .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin-left: 2rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: var(--light-text);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+    
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .projects-hero {
+        height: 60vh;
+        background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .projects-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(196, 30, 58, 0.7), rgba(26, 26, 26, 0.7));
+    }
+    
+    .projects-hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .projects-hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .projects-hero p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 4rem 0;
+    }
+    
+    .project-card {
+        background-color: var(--secondary-color);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(196, 30, 58, 0.8);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .project-card:hover .project-overlay {
+        opacity: 1;
+    }
+    
+    .project-title {
+        font-size: 1.8rem;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .project-description {
+        font-size: 1rem;
+        color: var(--light-text);
+        text-align: center;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: var(--text-color);
+        color: var(--primary-color);
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .project-link:hover {
+        background-color: var(--accent-color);
+        color: var(--secondary-color);
+    }
+    
+    .cta-section {
+        background-color: var(--secondary-color);
+        padding: 4rem 0;
+        text-align: center;
+    }
+    
+    .cta-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+    
+    .cta-description {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .cta-button:hover {
+        background-color: #9B1C2F;
+        transform: scale(1.05);
+    }
+    
+    footer {
+        background-color: var(--secondary-color);
+        color: var(--light-text);
+        padding: 4rem 0 2rem;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex: 1;
+        margin-right: 2rem;
+        min-width: 200px;
+    }
+    
+    .footer-section h3 {
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+    }
+    
+    .footer-section p {
+        margin-bottom: 0.8rem;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .social-icons a {
+        color: var(--light-text);
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .completed-projects, .upcoming-projects {
+        padding: 4rem 0;
+    }
+
+    .projects-slider {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 1rem;
+    }
+
+    .project-slide {
+        display: inline-block;
+        width: 300px;
+        margin-right: 1rem;
+        vertical-align: top;
+        white-space: normal;
+    }
+
+    .project-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .project-info {
+        margin-top: 1rem;
+    }
+
+    .project-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-info p {
+        font-size: 0.9rem;
+        color: var(--light-text);
+    }
+
+    .video-preview {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .video-info {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .video-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .video-info p {
+        font-size: 1rem;
+        color: var(--light-text);
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .projects-hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .projects-hero p {
+            font-size: 1.2rem;
+        }
+        
+        .footer-content {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <img src="/a/54598752-0da2-485c-8ee9-481891ef2ba6" alt="REV Konstriksyon Logo" width="50" height="50">
+                REV Konstriksyon
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Akèy</a></li>
+                <li><a href="/sevis">Sèvis</a></li>
+                <li><a href="/pwojè">Pwojè</a></li>
+                <li><a href="/ekip">Ekip</a></li>
+                <li><a href="/kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects-hero">
+            <div class="projects-hero-content">
+                <h1>Pwojè Nou Yo</h1>
+                <p>Dekouvri reyalizasyon eksepsyonèl nou yo nan domèn konstriksyon ak renovasyon</p>
+            </div>
+        </section>
+
+        <section class="container projects-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Liks Rezidans" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Liks Rezidans</h3>
+                    <p class="project-description">Konstriksyon yon rezidans modèn ak liks nan kè Pòtoprens.</p>
+                    <a href="/pwojè/liks-rezidans" class="project-link">Gade Detay</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Biwo Komèsyal" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Biwo Komèsyal</h3>
+                    <p class="project-description">Renovasyon yon espas biwo modèn pou yon konpayi teknoloji.</p>
+                    <a href="/pwojè/biwo-komèsyal" class="project-link">Gade Detay</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Otèl Bòdmè" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Otèl Bòdmè</h3>
+                    <p class="project-description">Konstriksyon yon otèl liks sou bòdmè nan nò peyi a.</p>
+                    <a href="/pwojè/otèl-bòdmè" class="project-link">Gade Detay</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1530126483408-aa533e55bdb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Sant Kominotè" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Sant Kominotè</h3>
+                    <p class="project-description">Konstriksyon yon sant kominotè modèn pou yon katye lokal.</p>
+                    <a href="/pwojè/sant-kominotè" class="project-link">Gade Detay</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Lekòl Modèn" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Lekòl Modèn</h3>
+                    <p class="project-description">Konstriksyon yon nouvo batiman lekòl ak ekipman modèn.</p>
+                    <a href="/pwojè/lekòl-modèn" class="project-link">Gade Detay</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1515263487990-61b07816b324?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Magazen Komèsyal" class="project-image">
+                <div class="project-overlay">
+                    <h3 class="project-title">Magazen Komèsyal</h3>
+                    <p class="project-description">Renovasyon yon gran magazen komèsyal nan sant vil la.</p>
+                    <a href="/pwojè/magazen-komèsyal" class="project-link">Gade Detay</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container completed-projects">
+            <h2 class="section-title">Pwojè Nou Reyalize Deja</h2>
+            <div class="projects-slider">
+                <div class="project-slide">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Pwojè Konplete 1" class="project-image">
+                    <div class="project-info">
+                        <h3>Rezidans Modèn</h3>
+                        <p>Yon bèl rezidans modèn nou te bati nan zòn Petyonvil.</p>
+                    </div>
+                </div>
+                <div class="project-slide">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Pwojè Konplete 2" class="project-image">
+                    <div class="project-info">
+                        <h3>Biwo Komèsyal</h3>
+                        <p>Renovasyon yon gran espas biwo nan sant vil la.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container upcoming-projects">
+            <h2 class="section-title">Pwojè Nou Genyen Ki Sou Papye</h2>
+            <div class="video-preview">
+                <video controls width="100%">
+                    <source src="foto/kay2.mp4" type="video/mp4">
+                    Navigatè ou a pa sipòte tag videyo a.
+                </video>
+                <div class="video-info">
+                    <h3>Nouvo Konplèks Rezidansyèl</h3>
+                    <p>Yon apèsi 3D de pwojè konplèks rezidansyèl nou pral konstwi byento.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Ou Gen yon Pwojè nan Tèt?</h2>
+                <p class="cta-description">Kèlkeswa dimansyon pwojè ou a, nou gen eksperyans ak konpetans pou reyalize li. Kontakte nou jodi a pou nou ka kòmanse travay ansanm.</p>
+                <a href="/kontak" class="cta-button">Kontakte Nou</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>REV Konstriksyon</h3>
+                <p>Nou bay vi a vizyon ou depi 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakte Nou</h3>
+                <p>Adrès: 123 Ri Inovasyon, Pòtoprens, Ayiti</p>
+                <p>Telefòn: +509 2222-3333</p>
+                <p>Imèl: info@revkonstriksyon.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Swiv Nou</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com/revkonstriksyon" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/revkonstriksyon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/revkonstriksyon" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/revkonstriksyon" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 REV Konstriksyon. Tout dwa rezève.</p>
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate project cards on scroll
+        gsap.utils.toArray('.project-card').forEach(card => {
+            gsap.from(card, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Parallax effect for projects hero section
+        gsap.to('.projects-hero', {
+            backgroundPosition: "50% 100%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: '.projects-hero',
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // Animate CTA section
+        gsap.from('.cta-section', {
+            backgroundColor: 'rgba(26, 26, 26, 0)',
+            scrollTrigger: {
+                trigger: '.cta-section',
+                start: "top center",
+                end: "bottom center",
+                scrub: true
+            }
+        });
+
+        gsap.from('.cta-title, .cta-description, .cta-button', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.cta-section',
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate the new sections
+        gsap.from('.completed-projects, .upcoming-projects', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.3,
+            scrollTrigger: {
+                trigger: '.completed-projects',
+                start: 'top bottom-=100',
+                toggleActions: 'play none none reverse'
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="ht">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,80 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-    :root {
+
+    
+    .video-plans {
+        padding: 5rem 0;
+    }
+
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .video-item {
+        background-color: var(--secondary-color);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .video-item video {
+        width: 100%;
+        height: auto;
+    }
+
+    .video-item h3 {
+        padding: 1rem;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+    }
+
+    .project-gallery {
+        margin-top: 4rem;
+    }
+
+    .gallery-slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    .gallery-slider img {
+        flex: 0 0 auto;
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        scroll-snap-align: start;
+        margin-right: 1rem;
+        border-radius: 10px;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+        }
+        
+        .footer-content {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+    }
+ :root {
         --primary-color: #C41E3A;
         --secondary-color: #1A1A1A;
         --accent-color: #D3D3D3;
@@ -307,6 +380,72 @@
         border-top: 1px solid rgba(255,255,255,0.1);
     }
     
+    .section-title {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .completed-projects, .upcoming-projects {
+        padding: 4rem 0;
+    }
+
+    .projects-slider {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 1rem;
+    }
+
+    .project-slide {
+        display: inline-block;
+        width: 300px;
+        margin-right: 1rem;
+        vertical-align: top;
+        white-space: normal;
+    }
+
+    .project-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .project-info {
+        margin-top: 1rem;
+    }
+
+    .project-info h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-info p {
+        font-size: 0.9rem;
+        color: var(--light-text);
+    }
+
+    .video-preview {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .video-info {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .video-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .video-info p {
+        font-size: 1rem;
+        color: var(--light-text);
+    }
+
     @media (max-width: 768px) {
         .nav-links {
             display: none;
@@ -328,51 +467,76 @@
             margin-bottom: 2rem;
         }
     }
-	 @media (max-width: 768px) {
-        .nav-links {
-            display: none;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-        }
-        
-        .about-content {
-            flex-direction: column;
-        }
-        
-        .footer-content {
-            flex-direction: column;
-        }
-        
-        .footer-section {
-            margin-bottom: 2rem;
-        }
+    :root {
+        --primary-color: FF0000;
+        --secondary-color: #1A1A1A;
+        --accent-color: #D3D3D3;
+        --background-color: #0F0F0F;
+        --text-color: #FFFFFF;
+        --light-text: #E0E0E0;
     }
-		.nav-links {
-  display: none; /* Kache pa default */
-  list-style: none;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 60px; /* Ajiste pozisyon selon bezwen ou */
-  left: 0;
-  width: 100%;
-  background-color: #1A1A1A; /* Chanje koulè si ou vle */
-  z-index: 1000;
-}
-
-/* Montre nav bar la lè li gen klas 'active' */
-.nav-links.active {
-  display: flex;
-}
-
     
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        overflow-x: hidden;
+    }
     
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    header {
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.5s ease;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+        transform: scale(1.05);
+    }
+    
+    .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
     
     .nav-links li {
         margin-left: 2rem;
@@ -403,58 +567,473 @@
         transform: scaleX(1);
     }
     
+    .projects-hero {
+        height: 100vh;
+        background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .projects-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+    }
+    
+    .projects-hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .projects-hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .projects-hero p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 4rem 0;
+    }
+    
+    .project-card {
+        background-color: var(--secondary-color);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(196, 30, 58, 0.8);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .project-card:hover .project-overlay {
+        opacity: 1;
+    }
+    
+    .project-title {
+        font-size: 1.8rem;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .project-description {
+        font-size: 1rem;
+        color: var(--light-text);
+        text-align: center;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .project-link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: var(--text-color);
+        color: var(--primary-color);
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .project-link:hover {
+        background-color: var(--accent-color);
+        color: var(--secondary-color);
+    }
+    
+    .cta-section {
+        background-color: var(--secondary-color);
+        padding: 4rem 0;
+        text-align: center;
+    }
+    
+    .cta-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+    
+    .cta-description {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .cta-button:hover {
+        background-color: #9B1C2F;
+        transform: scale(1.05);
+    }
+    
+    footer {
+        background-color: var(--secondary-color);
+        color: var(--light-text);
+        padding: 4rem 0 2rem;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex: 1;
+        margin-right: 2rem;
+        min-width: 200px;
+    }
+    
+    .footer-section h3 {
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+    }
+    
+    .footer-section p {
+        margin-bottom: 0.8rem;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .social-icons a {
+        color: var(--light-text);
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
     .menu-toggle {
         display: none;
         cursor: pointer;
         font-size: 1.5rem;
         color: var(--light-text);
     }
-    
-    @media (max-width: 768px) {
-        .nav-links {
-            position: fixed;
-            top: 70px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 70px);
-            background-color: var(--secondary-color);
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.5s ease;
-        }
-        
-        .nav-links.active {
-            left: 0;
-        }
-        
-        .nav-links li {
-            margin: 1.5rem 0;
+
+    @media (max-width: 1024px) {
+        .header-right .nav-links {
+            display: none;
         }
         
         .menu-toggle {
             display: block;
         }
     }
+
+    @media (min-width: 1025px) {
+        .bottom-nav, .floating-message-btn {
+            display: none;
+        }
+    }
+
+    .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 7px 0;
+        position: fixed;
+        bottom: 0;
+        left: 15;
+        right: 15;
+        background-color: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+		border-radius: 15px;
+    }
+
+    .bottom-nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--light-text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        padding: 5px 0;
+    }
+
+    .bottom-nav a svg {
+        width: 28px;
+        height: 28px;
+        margin-bottom: 5px;
+        transition: all 0.3s ease;
+        fill: url(#icon-gradient);
+    }
+
+    .bottom-nav .home-item {
+        transform: translateY(-15px);
+    }
+
+    .bottom-nav .home-item svg {
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        padding: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .bottom-nav a:not(.home-item) {
+        flex: 1;
+    }
+
+    @keyframes iconPulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .bottom-nav a.active svg {
+        animation: iconPulse 1.5s infinite;
+    }
+
+    .floating-message-btn {
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
+
+    .floating-message-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .floating-message-btn svg {
+        width: 28px;
+        height: 28px;
+        fill: white;
+    }
+
+    @media (min-width: 1025px) {
+        .bottom-nav {
+            display: none;
+        }
+        
+        .floating-message-btn {
+            bottom: 20px;
+        }
+    }
+    
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+     .services-hero {
+        height: 100vh;
+        background-image: url('https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+		
+    }
+    
+    .services-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+    }
+    
+    .services-hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .services-hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .services-hero p {
+        font-size: 1.5rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .services-section {
+        padding: 8rem 0;
+        background-color: var(--secondary-color);
+    }
+    
+    .section-title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 4rem;
+        color: var(--primary-color);
+    }
+    
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+    }
+    
+    .service-card {
+        background-color: var(--background-color);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    
+    .service-image {
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+    
+    .service-image::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent, var(--background-color));
+    }
+    
+    .service-content {
+        padding: 2rem;
+    }
+    
+    .service-content h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    
+   
 </style>
 </head>
 <body>
+<svg width="0" height="0" class="hidden">
+        <defs>
+            <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF0000" />
+                <stop offset="100%" stop-color="#1A1A1A" />
+            </linearGradient>
+        </defs>
+    </svg>
     <header id="main-header">
         <nav class="container">
-				<a href="index.html" class="logo">
+            <div class="header-left">
+                <a href="index.html" class="logo">
                 <img src="logo.png" alt="REV Konstriksyon Logo" width="50" height="50">
                 <span>REV Konstriksyon</span>
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Akèy</a></li>
+            </div>
+            <div class="header-right">
+                <div class="menu-toggle" id="menuToggle">
+                   
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Akèy</a></li>
                 <li><a href="sevis.html">Sèvis</a></li>
                 <li><a href="pwoje.html">Pwojè</a></li>
                 <li><a href="ekip.html">Ekip</a></li>
 				<li><a href="blog.html">Blog</a></li>
                 <li><a href="kontak.html">Kontak</a></li>
-            </ul>
-			<div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+                </ul>
             </div>
         </nav>
     </header>
@@ -462,20 +1041,64 @@
     <main>
         <section class="projects-hero">
             <div class="projects-hero-content">
-                <h1>Pwojè Nou Yo</h1>
-                <p>Dekouvri reyalizasyon eksepsyonèl nou yo nan domèn konstriksyon ak renovasyon</p>
+                <h1>Pwojè Eksepsyonèl nou yo</h1>
+                <p>REV Konstriksyon kreye pwojè ki depase limit tradisyonèl yo. Chak estrikti nou bati pote inikite, fòs, ak estetik inovatè ki reflete rèv kliyan nou yo. Avèk pwojè reyalize avèk presizyon ak pwojè k ap vini ki deja pwomèt gwo siksè.</p>
             </div>
         </section>
-
-        <section class="container projects-grid">
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Liks Rezidans" class="project-image">
-                <div class="project-overlay">
-                    <h3 class="project-title">Rezidans Delmas 55</h3>
-                    <p class="project-description">Konstriksyon yon rezidans modèn ak liks nan kè Pòtoprens.</p>
-                    <a href="#" class="project-link">Gade Detay</a>
+ <section class="services-section">
+            <div class="container">
+                <h2 class="section-title">Kelke Pwojè nou reyalize</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('foto/deyekay.jpeg');"></div>
+                        <div class="service-content">
+                            <h3>Rezidansyèl liks nan kè Delmas</h3>
+                            <p>Sitiye nan Delmas 55, epi li fèt ak yon atansyon espesyal sou modènite ak fonksyonalite. Li gen de kay: yon prensipal ak yon segondè, ki founi yon espas konfòtab ak pratik. Chak kay konstwi avèk presizyon ak bon kalite materyèl pou kreye yon anviwònman sofistike ki adapte ak bezwen lavi chak jou. Avèk yon konsepsyon ki melanje liks ak pratik.</p>
+                            <a href="d55.html" class="cta-button">Aprann Plis</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-image" style="background-image: url('foto/terasapre.jpeg');"></div>
+                        <div class="service-content">
+                            <h3>Renovasyon Yon Teras Kanapevè</h3>
+                            <p>Nou te transfòme teras sa a nan yon espas modèn ak fonksyonèl, ak nouvo planche rezistan, mèb akeyan, ak yon jaden vertikal pou yon touche natirèl. Nou te ajoute sistèm drenaj efikas pou sezon lapli, ansanm ak limyè ekstèn ak sekirite avanse. Teras la kounye a se yon plas ideyal pou detant ak resevwa envite.</p>
+                            <a href="kv.html" class="cta-button">Aprann Plis</a>
+                        </div>
+                    </div>
+                    
+					
                 </div>
             </div>
+        </section>
+		
+		<section class="services-section">
+    <div class="container">
+        <h2 class="section-title">Videyo kèk Pwojè 3D</h2>
+        <div class="video-grid">
+            <div class="video-item">
+                <video controls>
+                    <source src="foto/biz1.mp4" type="video/mp4">
+                    Navigatè ou a pa sipòte eleman video a.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="foto/kay3.mp4" type="video/mp4">
+                    Navigatè ou a pa sipòte eleman video a.
+                </video>
+            </div>
+            <div class="video-item">
+                <video controls>
+                    <source src="foto/kay2.mp4" type="video/mp4">
+                    Navigatè ou a pa sipòte eleman video a.
+                </video>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+		
             
         </section>
 
@@ -514,6 +1137,34 @@
             <p>&copy; 2024 REV Konstriksyon. Tout dwa rezève.</p>
         </div>
     </footer>
+	<nav class="bottom-nav">
+        <a href="sevis.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+            <span>Sèvis</span>
+        </a>
+        <a href="pwoje.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 2H7C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4zm-5 14c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/></svg>
+            <span>Pwojè</span>
+        </a>
+        <a href="index.html" class="nav-item home-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm9-8.586 6 6V15l.001 5H6v-9.586l6-6z"/></svg>
+            <span>Akèy</span>
+        </a>
+        <a href="ekip.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+            <span>Ekip</span>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm-1 14.25H6v-1.5h12v1.5zm0-3.75H6v-1.5h12v1.5zm0-3.75H6v-1.5h12v1.5z"/></svg>
+            <span>Blog</span>
+        </a>
+    </nav>
+<div class="floating-message-btn">
+<a href="kontak.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+        </svg> </a>
+    </div>
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
@@ -553,36 +1204,43 @@
                 scrub: true
             }
         });
-		 document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", function() {
-      navLinks.classList.toggle("active");
-    });
-  });
-
-        gsap.from('.cta-title, .cta-description, .cta-button', {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: '.cta-section',
-                start: "top bottom-=100",
-                toggleActions: "play none none reverse"
-            }
-        });
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+// Mobile menu toggle
+        const bottomNavLinks = document.querySelectorAll('.bottom-nav a');
+        bottomNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                bottomNavLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                const icon = this.querySelector('svg');
+                icon.style.animation = 'none';
+                icon.offsetHeight; 
+                icon.style.animation = null;
+
+                setTimeout(() => {
+                    window.location.href = this.getAttribute('href');
+                }, 300);
             });
         });
+
+        const currentPath = window.location.pathname;
+        const currentLink = document.querySelector(`.bottom-nav a[href="${currentPath}"]`);
+        if (currentLink) {
+            currentLink.classList.add('active');
+        }
+
+              // Initialize video players
+        const videos = document.querySelectorAll('.video-item video');
+        videos.forEach(video => {
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        });
+
     </script>
 </body>
 </html>

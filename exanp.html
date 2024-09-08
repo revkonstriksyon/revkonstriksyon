@@ -1,0 +1,712 @@
+<html lang="ht">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pwojè REV Konstriksyon - Reyalizasyon Eksepsyonèl nan Domèn Konstriksyon</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root {
+        --primary-color: #C41E3A;
+        --secondary-color: #1A1A1A;
+        --accent-color: #D3D3D3;
+        --background-color: #0F0F0F;
+        --text-color: #FFFFFF;
+        --light-text: #E0E0E0;
+    }
+    
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    header {
+        background-color: rgba(26, 26, 26, 0.8);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.5s ease;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+        transform: scale(1.05);
+    }
+    
+    .logo img {
+        height: 50px;
+        margin-right: 10px;
+    }
+    
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin-left: 2rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: var(--light-text);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+    
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .hero {
+        height: 60vh;
+        background-image: url('https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(196, 30, 58, 0.7), rgba(26, 26, 26, 0.7));
+    }
+    
+    .hero-content {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .hero p {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    .projects {
+        padding: 5rem 0;
+    }
+    
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .project-card {
+        background-color: var(--secondary-color);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    
+    .project-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    
+    .project-content {
+        padding: 1.5rem;
+    }
+    
+    .project-title {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .project-description {
+        font-size: 1rem;
+        color: var(--light-text);
+        margin-bottom: 1rem;
+    }
+    
+    .project-details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        color: var(--accent-color);
+    }
+    
+    .testimonials {
+        background-color: var(--secondary-color);
+        padding: 5rem 0;
+    }
+    
+    .testimonial-slider {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .testimonial-item {
+        padding: 2rem;
+    }
+    
+    .testimonial-text {
+        font-size: 1.2rem;
+        font-style: italic;
+        margin-bottom: 1rem;
+    }
+    
+    .testimonial-author {
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    
+    .cta {
+        padding: 5rem 0;
+        text-align: center;
+        background-image: url('https://images.unsplash.com/photo-1541123437800-1bb1317badc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+    
+    .cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(26, 26, 26, 0.8);
+    }
+    
+    .cta-content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .cta-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+    
+    .cta-description {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .cta-button:hover {
+        background-color: #9B1C2F;
+        transform: scale(1.05);
+    }
+    
+    footer {
+        background-color: var(--secondary-color);
+        color: var(--light-text);
+        padding: 4rem 0 2rem;
+    }
+    
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .footer-section {
+        flex: 1;
+        margin-right: 2rem;
+        min-width: 200px;
+    }
+    
+    .footer-section h3 {
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+    }
+    
+    .footer-section p {
+        margin-bottom: 0.8rem;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .social-icons a {
+        color: var(--light-text);
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+        color: var(--primary-color);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .video-plans {
+        padding: 5rem 0;
+    }
+
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .video-item {
+        background-color: var(--secondary-color);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .video-item video {
+        width: 100%;
+        height: auto;
+    }
+
+    .video-item h3 {
+        padding: 1rem;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+    }
+
+    .project-gallery {
+        margin-top: 4rem;
+    }
+
+    .gallery-slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    .gallery-slider img {
+        flex: 0 0 auto;
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        scroll-snap-align: start;
+        margin-right: 1rem;
+        border-radius: 10px;
+    }
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+        }
+        
+        .footer-content {
+            flex-direction: column;
+        }
+        
+        .footer-section {
+            margin-bottom: 2rem;
+        }
+    }
+	.video-plans-title {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+</style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <img src="/a/54598752-0da2-485c-8ee9-481891ef2ba6" alt="REV Konstriksyon Logo" width="50" height="50">
+                REV Konstriksyon
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Akèy</a></li>
+                <li><a href="/sevis">Sèvis</a></li>
+                <li><a href="/pwojè">Pwojè</a></li>
+                <li><a href="/ekip">Ekip</a></li>
+                <li><a href="/kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Pwojè Nou Yo</h1>
+                <p>Dekouvri eksèlans nou atravè pwojè nou yo. Chak konstriksyon se yon temwayaj angajman nou pou kalite ak inovasyon.</p>
+            </div>
+        </section>
+
+        <section class="projects container">
+            <h2>Pwojè Nou Reyalize Deja</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Rezidans Solèy Leve" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Rezidans Solèy Leve</h3>
+                        <p class="project-description">Yon pwojè rezidansyèl modèn ki melanje achitekti kontanporen ak eleman tradisyonèl ayisyen.</p>
+                        <div class="project-details">
+                            <span>Lokasyon: Pòtoprens</span>
+                            <span>Ane: 2022</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Konplèks Biwo Ayiti Pwogrè" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Konplèks Biwo Ayiti Pwogrè</h3>
+                        <p class="project-description">Yon espas biwo modèn ki favorize kolaborasyon ak pwodiktivite pou antrepriz k ap grandi nan Ayiti.</p>
+                        <div class="project-details">
+                            <span>Lokasyon: Delmas</span>
+                            <span>Ane: 2021</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Sant Kominotè Espwa" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Sant Kominotè Espwa</h3>
+                        <p class="project-description">Yon sant milti-fonksyonèl ki sèvi kòm yon sant edikasyon, sante, ak aktivite kiltirèl pou kominote lokal la.</p>
+                        <div class="project-details">
+                            <span>Lokasyon: Jeremi</span>
+                            <span>Ane: 2020</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Vil Vèt Ayiti" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Vil Vèt Ayiti</h3>
+                        <p class="project-description">Yon pwojè rezidansyèl ekolojik ki mete aksan sou dirab ak efikasite enèji, kreye yon kominote vèt nan kè Ayiti.</p>
+                        <div class="project-details">
+                            <span>Lokasyon: Petyonvil</span>
+                            <span>Ane: 2023</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2144&q=80" alt="Otèl Lakay" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Otèl Lakay</h3>
+                        <p class="project-description">Yon otèl bourik ki melanje liks modèn ak ospitalite tradisyonèl ayisyen, ofri yon eksperyans inik pou vizitè yo.</p>
+                        <div class="project-details">
+                            <span>Lokasyon: Jacmel</span>
+                            <span>Ane: 2022</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Renovasyon Kay Istorik" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Renovasyon Kay Istorik</h3>
+                        <p class="project-description">Yon pwojè renovasyon delikat ki restore yon kay istorik nan Pòtoprens, prezève eritaj li pandan y ap entegre amelyorasyon modèn.</p>
+                        <div class="project-details">
+                            <span>Lokasyon: Pòtoprens</span>
+                            <span>Ane: 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-gallery">
+                <h3>Galri Foto Pwojè Nou Yo</h3>
+                <div class="gallery-slider">
+                    <img src="/images/project-gallery-1.jpg" alt="Foto pwojè 1">
+                    <img src="/images/project-gallery-2.jpg" alt="Foto pwojè 2">
+                    <img src="/images/project-gallery-3.jpg" alt="Foto pwojè 3">
+                    <img src="/images/project-gallery-4.jpg" alt="Foto pwojè 4">
+                    <img src="/images/project-gallery-5.jpg" alt="Foto pwojè 5">
+                </div>
+            </div>
+        </section>
+
+        <section class="video-plans container">
+            <h2>Kek Egzanp Plan 3D Pwojè Nou Yo</h2>
+                           <div class="video-grid">
+                <div class="video-item">
+                    <video controls poster="foto/biz1.jpg">
+                        <source src="foto/biz1.mp4" type="video/mp4">
+                        Navigatè ou a pa sipòte eleman video a.
+                    </video>
+                    
+                </div>
+                <div class="video-item">
+                    <video controls poster="foto/kay3.jpg">
+                        <source src="foto/kay3.mp4" type="video/mp4">
+                        Navigatè ou a pa sipòte eleman video a.
+                    </video>
+                    
+                </div>
+                <div class="video-item">
+                    <video controls poster="foto/kay2.jpg">
+                        <source src="foto/kay2.mp4" type="video/mp4">
+                        Navigatè ou a pa sipòte eleman video a.
+                    </video>
+                   
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>Sa Kliyan Nou Yo Di</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial-item">
+                        <p class="testimonial-text">"REV Konstriksyon te depase tout atant nou yo. Pwofesyonalis yo te atansyone, konpetan, e yo te livre pwojè a alè e nan bidjè a."</p>
+                        <p class="testimonial-author">- Marie Dupont, Propriétaire Rezidans Solèy Leve</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p class="testimonial-text">"Nou pa t ka mande yon pi bon patnè pou pwojè biwo nou an. Ekip REV Konstriksyon an te vrèman konprann vizyon nou epi yo te reyalize li yon fason ekstrawòdinè."</p>
+                        <p class="testimonial-author">- Jean Baptiste, PDG Ayiti Pwogrè</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <p class="testimonial-text">"Angajman REV Konstriksyon pou kalite ak detay te evidan nan chak aspè pwojè nou an. Yo te kreye yon espas ki depase sa nou te imajine."</p>
+                        <p class="testimonial-author">- Pierre Louis, Direktè Sant Kominotè Espwa</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-content">
+                <h2 class="cta-title">Ou Gen yon Pwojè nan Tèt?</h2>
+                <p class="cta-description">Kèlkeswa vizyon ou genyen, nou gen eksperyans ak konpetans pou reyalize li. Annou travay ansanm pou kreye yon bagay ekstraòdinè.</p>
+                <a href="/kontak" class="cta-button">Kontakte Nou Jodi a</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>REV Konstriksyon</h3>
+                <p>Nou bay vi a vizyon ou depi 2010.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakte Nou</h3>
+                <p>Adrès: 123 Ri Inovasyon, Pòtoprens, Ayiti</p>
+                <p>Telefòn: +509 2222-3333</p>
+                <p>Imèl: info@revkonstriksyon.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Swiv Nou</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com/revkonstriksyon" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://instagram.com/revkonstriksyon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/revkonstriksyon" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/revkonstriksyon" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 REV Konstriksyon. Tout dwa rezève.</p>
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animate hero section
+        gsap.from('.hero-content', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: 0.5
+        });
+
+        // Animate project cards
+        gsap.utils.toArray('.project-card').forEach(card => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Animate testimonials
+        gsap.utils.toArray('.testimonial-item').forEach(item => {
+            gsap.from(item, {
+                opacity: 0,
+                x: -50,
+                duration: 0.8,
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top bottom-=100",
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+
+        // Animate CTA section
+        gsap.from('.cta-content', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '.cta',
+                start: "top bottom-=100",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        // Parallax effect for hero section
+        gsap.to('.hero', {
+            backgroundPosition: "50% 100%",
+            ease: "none",
+            scrollTrigger: {
+                trigger: '.hero',
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // Simple testimonial slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-item');
+        
+        function showNextTestimonial() {
+            testimonials[currentTestimonial].style.display = 'none';
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            testimonials[currentTestimonial].style.display = 'block';
+        }
+
+        setInterval(showNextTestimonial, 5000);  // Change testimonial every 5 seconds
+
+        // Initialize video players
+        const videos = document.querySelectorAll('.video-item video');
+        videos.forEach(video => {
+            video.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        });
+
+        // Gallery slider functionality
+        const gallerySlider = document.querySelector('.gallery-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        gallerySlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - gallerySlider.offsetLeft;
+            scrollLeft = gallerySlider.scrollLeft;
+        });
+
+        gallerySlider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        gallerySlider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        gallerySlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallerySlider.offsetLeft;
+            const walk = (x - startX) * 3;
+            gallerySlider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>

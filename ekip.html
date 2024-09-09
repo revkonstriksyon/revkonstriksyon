@@ -8,6 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
+
     :root {
         --primary-color: FF0000;
         --secondary-color: #1A1A1A;
@@ -126,7 +127,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(45deg, rgba(196, 30, 58, 0.7), rgba(26, 26, 26, 0.7));
+        background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
     }
     
     .team-hero-content {
@@ -497,44 +498,92 @@
         <section class="team-section">
             <div class="container">
                 <h2 class="section-title">Ekip Dirijan Nou</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="foto/panier.jpeg" alt="Foto Jean-Paul Duval" class="team-member-image">
-                        <div class="team-member-info">
-                            <h3 class="team-member-name">Panier Agaby D.</h3>
-                            <p class="team-member-role">Fondatè ak PDG</p>
-                            <p class="team-member-bio">Panier Agaby se yon jèn enjenyè eksperimante ki gen yon konpetans laj nan divès domèn tankou achitekti, jesyon pwojè, enfòmatik, antreprenarya, ak management. Li se yon moun ki renmen akeri nouvo konesans epi pifò nan sa li konnen, li aprann yo kòm yon otodidak. Panier se yon lidè pasyone ki toujou ap chèche nouvo fason pou amelyore efikasite ak kreye solisyon inovatè, ak yon angajman fèm pou ekselans nan tout sa li fè.</p>
-                            <div class="social-links">
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
+                <div class="team-hierarchy">
+                    <div class="hierarchy-level top-level">
+                        <div class="team-member executive">
+                            <div class="team-member-info">
+                                <h3 class="team-member-name">Guy Cadely</h3>
+                                <p class="team-member-role">PDG </p>
+                                <p class="team-member-bio">Lidè vizyonè ak 20+ ane li responsab pou tout estrateji ak direksyon jeneral konpayi an.</p>
+                                <div class="social-links">
+                                    <a href="https://linkedin.com/in/jean-paul-duval" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://twitter.com/jeanpaulduval" target="_blank"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member executive">
+                            <div class="team-member-info">
+                                <h3 class="team-member-name">Panier Agaby</h3>
+                                <p class="team-member-role">Direktè Jeneral Operasyon</p>
+                                <p class="team-member-bio">Ekspè nan jesyon operasyon ak asirans kalite ki melanje tradisyon ak modènite,  li sipèvize tout aktivite chak jou nan konpayi an pou asire efikasite..</p>
+                                <div class="social-links">
+                                    <a href="https://linkedin.com/in/marie-claire-joseph" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://instagram.com/marieclairejoseph" target="_blank"><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="team-member">
-                        <img src="foto/michou.jpeg" alt="Foto Marie-Claire Joseph" class="team-member-image">
-                        <div class="team-member-info">
-                            <h3 class="team-member-name">Duret Mirlene</h3>
-                            <p class="team-member-role">Direktris Operasyon</p>
-                            <p class="team-member-bio">Duret Mirlene se Direktris Operasyon ak yon nivo pwofesyonèl ekstraòdinè, ak anpil eksperyans nan divès domèn tankou jesyon ak antreprenarya. Li se yon lidè konpetan ak yon kapasite ekselan pou jere ekip ak pwojè avèk efikasite. Mirlene distenge tèt li pa konpetans li nan devlope estrateji, optimize pwosesis, ak asire ke tout operasyon yo kouri san pwoblèm. avèk yon apwòch inovatif ak yon konesans pwofon nan endistri a, li pote yon valè inestimab nan tout sa li fè.</p>
-                            <div class="social-links">
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
+                    <div class="hierarchy-connector vertical-connector" style="height: 40px; top: calc(100% - 20px);"></div>
+                    <div class="hierarchy-level middle-level">
+                        <div class="hierarchy-connector horizontal-connector" style="width: 100%;"></div>
+                        <div class="team-member">
+                            <div class="team-member-info">
+                                <h3 class="team-member-name">Pierre Jhonny</h3>
+                                <p class="team-member-role">Chèf Teknisyen</p>
+                                <p class="team-member-bio">Enjenyè an elektwomeka inovatè, li dirije depatman teknik la epi sipèvize ekzekisyon pwojè yo.</p>
+                                <div class="social-links">
+                                    <a href="https://linkedin.com/in/pierre-louverture" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://behance.net/pierrelouverture" target="_blank"><i class="fab fa-behance"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-info">
+                                <h3 class="team-member-name">Mirlene Duret</h3>
+                                <p class="team-member-role">Direktris Finans</p>
+                                <p class="team-member-bio">Estratèj finansye ak eksperyans nan kwasans biznis,  li jere sante finansye konpayi an ak estrateji finansye li.</p>
+                                <div class="social-links">
+                                    <a href="https://linkedin.com/in/yvonne-estime" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://twitter.com/yvonneestime" target="_blank"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-info">
+                                <h3 class="team-member-name">Alouse Petit</h3>
+                                <p class="team-member-role">Manadjè Pwojè</p>
+                                <p class="team-member-bio">Espesyalis nan kowòdinasyon pwojè konplèks ak jesyon ekip miltidisiplinè, li responsab pou kowòdone ekip travay yo epi asire delivrans pwojè yo..</p>
+                                <div class="social-links">
+                                    <a href="https://linkedin.com/in/michel-baptiste" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="team-member">
-                        <img src="foto/jhonny.jpeg" alt="Foto Pierre Louverture" class="team-member-image">
-                        <div class="team-member-info">
-                            <h3 class="team-member-name">Pierre Jhonny</h3>
-                            <p class="team-member-role">Chèf Teknik</p>
-                            <p class="team-member-bio">Pierre Jhonny se yon teknisyen an jeni elektwomèkanik ki soti ak mansyon ekselan, rekonèt pou konpetans ak konesans li nan domèn li. Malgre laj jèn li, li gen anpil eksperyans, sa ki fè li se yon referans nan sektè a. Pierre Jhonny se yon pwofesyonèl pasyone, toujou pare pou aplike konesans li nan pratik epi pou pote solisyon efikas ak inovatè nan tout pwojè li antreprann.</p>
-                            <div class="social-links">
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-behance"></i></a>
+                    <div class="hierarchy-connector vertical-connector" style="height: 40px; top: calc(100% - 20px);"></div>
+                    <div class="hierarchy-level bottom-level">
+                        <div class="hierarchy-connector horizontal-connector" style="width: 100%;"></div>
+                        <div class="team-member">
+                            <div class="team-member-info">
+                                <h3 class="team-member-name">Duret Mario</h3>
+                                <p class="team-member-role">Chèf Maketing</p>
+                                <p class="team-member-bio">Ekspè nan estrateji dijital ak maketing konstriksyon, li jere estrateji maketing ak aktivite pwomosyon yo.</p>
+                                <div class="social-links">
+                                    <a href="https://linkedin.com/in/sophie-dumas" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://twitter.com/sophiedumas" target="_blank"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-member-info">
+                                <h3 class="team-member-name">panier Florence</h3>
+                                <p class="team-member-role">Direktis Resous Imèn</p>
+                                <p class="team-member-bio">Ekspè nan devlopman talan ak kilti òganizasyonèl, ki asire ekip nou an toujou an wot pèfòmans li jere relasyon anplwaye yo, rekritman ak devlopman pèsonèl..</p>
+                                <div class="social-links">
+                                    <a href="https://linkedin.com/in/jacqueline-beauvoir" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </section>
@@ -616,12 +665,18 @@
             <span>Blog</span>
         </a>
     </nav>
-<div class="floating-message-btn">
-<a href="kontak.html" class="nav-item">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
-        </svg> </a>
-    </div>
+ <script>
+window.embeddedChatbotConfig = {
+chatbotId: "ReC0_WnUJ47uLcLWEckq5",
+domain: "www.chatbase.co"
+}
+</script>
+<script
+src="https://www.chatbase.co/embed.min.js"
+chatbotId="ReC0_WnUJ47uLcLWEckq5"
+domain="www.chatbase.co"
+defer>
+</script>
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
